@@ -13,4 +13,5 @@ jobs:
           cache: 'yarn'
           node-version-file: '.nvmrc'
       - run: yarn install --frozen-lockfile
+      - run: yarn build
       - run: yarn coverage
