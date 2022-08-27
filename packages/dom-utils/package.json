@@ -1,7 +1,13 @@
 {
   "name": "@cloudwalker/dom-utils",
   "version": "0.0.0",
+  "scripts": {
+    "coverage": "vitest run --coverage"
+  },
   "devDependencies": {
-    "typescript": "^4.8.2"
+    "@vitest/coverage-c8": "^0.22.1",
+    "happy-dom": "^6.0.4",
+    "typescript": "^4.8.2",
+    "vitest": "^0.22.1"
   }
 }

@@ -1,6 +1,12 @@
 {
   "private": true,
+  "scripts": {
+    "coverage": "turbo run coverage"
+  },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "turbo": "^1.4.3"
+  }
 }
