@@ -3,7 +3,7 @@
   "version": "0.5.2",
   "description": "Because json stringify is not enough",
   "scripts": {
-    "lint:scripts": "eslint src/**",
+    "lint": "eslint src/**",
     "test": "jest --watch",
     "coverage": "jest --coverage",
     "storybook": "start-storybook -p 9000 -c .storybook",
