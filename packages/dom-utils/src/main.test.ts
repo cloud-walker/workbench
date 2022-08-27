@@ -1,5 +1,5 @@
 import {expect, test} from 'vitest'
-import {getBySelector} from './main'
+import {getBySelector} from './main.js'
 
 test('getBySelector works properly', () => {
   const el = document.createElement('div')

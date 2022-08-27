@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "strict": true,
-    "module": "NodeNext"
+    "module": "NodeNext",
+    "skipLibCheck": true
   },
-  "include": ["."],
-  "exclude": ["node_modules"]
+  "include": ["src"]
 }

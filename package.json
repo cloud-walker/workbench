@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "types": "turbo run types",
     "coverage": "turbo run coverage",
     "build": "turbo run build"
   },
