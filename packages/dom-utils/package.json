@@ -1,4 +1,7 @@
 {
   "name": "@cloudwalker/dom-utils",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "devDependencies": {
+    "typescript": "^4.8.2"
+  }
 }
