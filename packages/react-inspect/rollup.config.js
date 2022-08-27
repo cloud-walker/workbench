@@ -1,13 +1,13 @@
-import nodeResolve from 'rollup-plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
+import nodeResolve from 'rollup-plugin-node-resolve'
 import uglify from 'rollup-plugin-uglify'
 
 import pkg from './package.json'
 
 const babelConfig = babel({exclude: 'node_modules/**'})
 const external = ['react']
-const input = 'source/index.js'
+const input = 'src/index.js'
 
 const iifeConfig = {
   input,
@@ -34,7 +34,10 @@ export default [
   }),
   {
     input,
-    output: [{file: pkg.main, format: 'cjs'}, {file: pkg.module, format: 'es'}],
+    output: [
+      {file: pkg.main, format: 'cjs'},
+      {file: pkg.module, format: 'es'},
+    ],
     external,
     plugins: [nodeResolve({main: true, jsnext: true}), commonjs(), babelConfig],
   },

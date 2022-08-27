@@ -4,7 +4,7 @@
   "description": "Because json stringify is not enough",
   "scripts": {
     "build": "rollup -c",
-    "lint:scripts": "eslint source/**",
+    "lint:scripts": "eslint src/**",
     "storybook": "start-storybook -p 9000 -c .storybook",
     "test": "jest",
     "prepublish": "rollup -c",
