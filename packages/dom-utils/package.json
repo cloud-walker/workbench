@@ -8,11 +8,21 @@
     "coverage": "vitest run --coverage",
     "build": "tsup src/main.ts"
   },
+  "files": [
+    "dist/**"
+  ],
+  "main": "./dist/main.js",
+  "module": "./dist/main.mjs",
+  "types": "./dist/main.d.ts",
+  "sideEffects": false,
   "devDependencies": {
     "@vitest/coverage-c8": "^0.22.1",
     "happy-dom": "^6.0.4",
     "tsup": "^6.2.3",
     "typescript": "^4.8.2",
     "vitest": "^0.22.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
