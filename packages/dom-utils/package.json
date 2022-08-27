@@ -5,7 +5,7 @@
   "scripts": {
     "types": "tsc --noEmit",
     "coverage": "vitest run --coverage",
-    "build": "tsup main.ts"
+    "build": "tsup src/main.ts"
   },
   "devDependencies": {
     "@vitest/coverage-c8": "^0.22.1",
