@@ -7,9 +7,14 @@
     "test": "jest --watch",
     "coverage": "jest --coverage",
     "storybook": "start-storybook -p 9000 -c .storybook",
-    "build": "tsup src/index.js",
+    "build": "tsup src/main.js",
     "precommit": "lint-staged"
   },
+  "files": [
+    "dist/**"
+  ],
+  "main": "dist/main.js",
+  "module": "dist/main.mjs",
   "lint-staged": {
     "*.js": [
       "prettier",
@@ -22,16 +27,13 @@
       "enzyme-to-json/serializer"
     ]
   },
-  "jsnext:main": "dist/react-inspect.es.js",
-  "module": "dist/react-inspect.es.js",
-  "main": "dist/react-inspect.cjs.js",
   "author": "Luca Barone <baro.luc@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cloud-walker/react-inspect"
+    "url": "https://github.com/cloud-walker/workbench"
   },
   "bugs": {
-    "url": "https://github.com/cloud-walker/react-inspect/issues"
+    "url": "https://github.com/cloud-walker/workbench/issues"
   },
   "keywords": [
     "react",
