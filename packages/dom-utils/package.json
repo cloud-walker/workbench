@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "types": "tsc --noEmit",
+    "test": "vitest",
     "coverage": "vitest run --coverage",
     "build": "tsup src/main.ts"
   },
