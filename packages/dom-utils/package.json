@@ -1,6 +1,7 @@
 {
   "name": "@cloudwalker/dom-utils",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "coverage": "vitest run --coverage",
     "build": "tsup main.ts"
