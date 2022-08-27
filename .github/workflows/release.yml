@@ -9,15 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: echo 'I should run after test workflow'
-      # - uses: actions/setup-node@v3
-      #     with:
-      #       cache: 'yarn'
-      #       node-version-file: '.nvmrc'
-      # - run: yarn install --frozen-lockfile
-      # - uses: changesets/action@v1
-      #   with:
-      #     publish: yarn release
-      #   env:
-      #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      #     NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+          node-version-file: '.nvmrc'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - uses: changesets/action@v1
+        with:
+          publish: yarn release
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}

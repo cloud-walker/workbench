@@ -4,7 +4,8 @@
     "types": "turbo run types",
     "test": "turbo run test",
     "coverage": "turbo run coverage",
-    "build": "turbo run build"
+    "build": "turbo run build",
+    "release": "changeset publish"
   },
   "workspaces": [
     "packages/*"
