@@ -4,7 +4,8 @@
   "description": "Because json stringify is not enough",
   "scripts": {
     "lint:scripts": "eslint src/**",
-    "test": "jest",
+    "test": "jest --watch",
+    "coverage": "jest --coverage",
     "storybook": "start-storybook -p 9000 -c .storybook",
     "build": "tsup src/index.js",
     "precommit": "lint-staged"
