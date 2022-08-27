@@ -3,11 +3,10 @@
   "version": "0.5.2",
   "description": "Because json stringify is not enough",
   "scripts": {
-    "build": "rollup -c",
     "lint:scripts": "eslint src/**",
-    "storybook": "start-storybook -p 9000 -c .storybook",
     "test": "jest",
-    "prepublish": "rollup -c",
+    "storybook": "start-storybook -p 9000 -c .storybook",
+    "build": "tsup src/index.js",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -65,12 +64,8 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
-    "rollup": "^0.50.0",
-    "rollup-plugin-babel": "^3.0.2",
-    "rollup-plugin-commonjs": "^8.2.1",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-uglify": "^2.0.1",
-    "sanitize.css": "^5.0.0"
+    "sanitize.css": "^5.0.0",
+    "tsup": "^6.2.3"
   },
   "dependencies": {
     "just-is-circular": "^1.0.0",
