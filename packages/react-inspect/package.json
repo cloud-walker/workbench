@@ -7,21 +7,13 @@
     "test": "jest --watch",
     "coverage": "jest --coverage",
     "storybook": "start-storybook -p 9000 -c .storybook",
-    "build": "tsup src/main.js",
-    "precommit": "lint-staged"
+    "build": "tsup src/main.js"
   },
   "files": [
     "dist/**"
   ],
   "main": "dist/main.js",
   "module": "dist/main.mjs",
-  "lint-staged": {
-    "*.js": [
-      "prettier",
-      "eslint",
-      "git add"
-    ]
-  },
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
@@ -59,10 +51,7 @@
     "enzyme-to-json": "^2.0.0",
     "eslint": "^4.7.0",
     "eslint-plugin-react": "^7.3.0",
-    "husky": "^0.14.3",
     "jest": "^21.0.2",
-    "lint-staged": "^4.2.1",
-    "np": "^2.16.0",
     "prettier": "^1.5.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
