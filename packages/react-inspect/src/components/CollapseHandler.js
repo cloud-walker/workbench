@@ -7,7 +7,7 @@ const Component = class extends React.Component {
 
   constructor() {
     super()
-    this.handleClick = e => {
+    this.handleClick = (e) => {
       e.stopPropagation()
       this.setState({show: !this.state.show})
     }

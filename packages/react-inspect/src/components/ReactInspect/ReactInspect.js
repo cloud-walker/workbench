@@ -8,9 +8,7 @@ import DataHandler from '../DataHandler'
 import Layout from '../Layout'
 
 const Component = ({data, theme}) => {
-  if (
-    allPass([complement(is(Function)), is(Object), isCircular])(data)
-  ) {
+  if (allPass([complement(is(Function)), is(Object), isCircular])(data)) {
     throw new Error(
       'ReactInspect Error: circular data inspection not supported',
     )

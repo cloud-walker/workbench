@@ -1,6 +1,7 @@
 # react-inspect
 
 ## Installation
+
 This module is distributed via [npm][npm] which is bundled with [node][node] and
 should be installed as one of your project's `dependencies`:
 
@@ -12,6 +13,7 @@ npm install --save @cloudwalker/react-inspect
 > have those installed as well.
 
 ## Usage
+
 ```javascript
 import React from 'react'
 import Inspect from 'react-inspect'

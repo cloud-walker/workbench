@@ -42,10 +42,9 @@ const Component = class extends React.Component {
 
       return (
         <CollapseHandler>
-          {show =>
-            show
-              ? value
-              : {...value, props: {...value.props, children: 'fn'}}}
+          {(show) =>
+            show ? value : {...value, props: {...value.props, children: 'fn'}}
+          }
         </CollapseHandler>
       )
     }
@@ -64,12 +63,9 @@ const Component = class extends React.Component {
             value
           ) : (
             <CollapseHandler>
-              {show =>
-                show ? (
-                  value
-                ) : (
-                  <Punctuation theme={theme}>...</Punctuation>
-                )}
+              {(show) =>
+                show ? value : <Punctuation theme={theme}>...</Punctuation>
+              }
             </CollapseHandler>
           )}
           <Punctuation theme={theme}>{']'}</Punctuation>
@@ -80,7 +76,7 @@ const Component = class extends React.Component {
     if (is(Object)(data)) {
       const value = pipe(
         keys,
-        map(x => (
+        map((x) => (
           <Level key={x}>
             <Key theme={theme}>{x}</Key>
             <Punctuation theme={theme}>:</Punctuation>{' '}
@@ -96,12 +92,9 @@ const Component = class extends React.Component {
             value
           ) : (
             <CollapseHandler>
-              {show =>
-                show ? (
-                  value
-                ) : (
-                  <Punctuation theme={theme}>...</Punctuation>
-                )}
+              {(show) =>
+                show ? value : <Punctuation theme={theme}>...</Punctuation>
+              }
             </CollapseHandler>
           )}
           <Punctuation theme={theme}>{'}'}</Punctuation>

@@ -2,7 +2,7 @@ export const und = undefined
 export const nil = null
 export const num = 666
 export const str = 'cawabongaaa!'
-export const fun = a => {
+export const fun = (a) => {
   const b = 2
 
   while (a < 10) {
@@ -19,7 +19,7 @@ obj.obj = Object.assign({}, obj)
 
 export default obj
 
-const Circ = function() {
+const Circ = function () {
   this.foo = 'bar'
   this.circ = this
 }

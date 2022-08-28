@@ -44,7 +44,6 @@
     "eslint-plugin-react": "^7.3.0",
     "jest": "^29.0.1",
     "jest-environment-jsdom": "^29.0.1",
-    "prettier": "^1.5.3",
     "react": "^16.8",
     "react-dom": "^16.8",
     "sanitize.css": "^5.0.0",
