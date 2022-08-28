@@ -2,7 +2,12 @@ module.exports = {
   root: true,
   overrides: [
     {
-      files: ['src/**/*.js'],
+      files: ['./*.js'],
+      extends: ['eslint:recommended'],
+      env: {node: true},
+    },
+    {
+      files: ['src/**/*.{js,jsx}'],
       parser: '@babel/eslint-parser',
       extends: ['eslint:recommended', 'plugin:react/recommended'],
       settings: {
@@ -15,7 +20,7 @@ module.exports = {
       },
     },
     {
-      files: ['src/**/*.stories.js', 'src/**/*.test.js'],
+      files: ['src/**/*.stories.js', 'src/**/*.test.{js,jsx}'],
       env: {node: true},
     },
   ],

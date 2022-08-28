@@ -1,10 +1,10 @@
-import {render} from '@testing-library/react'
+import { render } from '@testing-library/react'
 import React from 'react'
+import { describe, expect, it, vi } from 'vitest'
 
-import data, {circ} from '../../mocks/data'
+import data, { circ } from '../../mocks/data'
 import Component from './index'
 
-/* eslint-env jest */
 describe(`${Component.displayName} component`, () => {
   it('should render properly', () => {
     const {container} = render(<Component data={data} />)
@@ -15,7 +15,7 @@ describe(`${Component.displayName} component`, () => {
         >
           <span>
             <span
-              style="font-weight: bold;"
+              style="font-weight: bold; color: inherit;"
             >
               {
             </span>
@@ -23,12 +23,12 @@ describe(`${Component.displayName} component`, () => {
               style="padding-left: 1rem;"
             >
               <span
-                style="font-weight: bold; color: rgb(119, 119, 119);"
+                style="font-weight: bold; color: #777;"
               >
                 und
               </span>
               <span
-                style="font-weight: bold;"
+                style="font-weight: bold; color: inherit;"
               >
                 :
               </span>
@@ -43,12 +43,12 @@ describe(`${Component.displayName} component`, () => {
               style="padding-left: 1rem;"
             >
               <span
-                style="font-weight: bold; color: rgb(119, 119, 119);"
+                style="font-weight: bold; color: #777;"
               >
                 nil
               </span>
               <span
-                style="font-weight: bold;"
+                style="font-weight: bold; color: inherit;"
               >
                 :
               </span>
@@ -63,12 +63,12 @@ describe(`${Component.displayName} component`, () => {
               style="padding-left: 1rem;"
             >
               <span
-                style="font-weight: bold; color: rgb(119, 119, 119);"
+                style="font-weight: bold; color: #777;"
               >
                 num
               </span>
               <span
-                style="font-weight: bold;"
+                style="font-weight: bold; color: inherit;"
               >
                 :
               </span>
@@ -83,12 +83,12 @@ describe(`${Component.displayName} component`, () => {
               style="padding-left: 1rem;"
             >
               <span
-                style="font-weight: bold; color: rgb(119, 119, 119);"
+                style="font-weight: bold; color: #777;"
               >
                 str
               </span>
               <span
-                style="font-weight: bold;"
+                style="font-weight: bold; color: inherit;"
               >
                 :
               </span>
@@ -103,12 +103,12 @@ describe(`${Component.displayName} component`, () => {
               style="padding-left: 1rem;"
             >
               <span
-                style="font-weight: bold; color: rgb(119, 119, 119);"
+                style="font-weight: bold; color: #777;"
               >
                 fun
               </span>
               <span
-                style="font-weight: bold;"
+                style="font-weight: bold; color: inherit;"
               >
                 :
               </span>
@@ -127,19 +127,19 @@ describe(`${Component.displayName} component`, () => {
               style="padding-left: 1rem;"
             >
               <span
-                style="font-weight: bold; color: rgb(119, 119, 119);"
+                style="font-weight: bold; color: #777;"
               >
                 arr
               </span>
               <span
-                style="font-weight: bold;"
+                style="font-weight: bold; color: inherit;"
               >
                 :
               </span>
                
               <span>
                 <span
-                  style="font-weight: bold;"
+                  style="font-weight: bold; color: inherit;"
                 >
                   [
                 </span>
@@ -147,13 +147,13 @@ describe(`${Component.displayName} component`, () => {
                   style="cursor: pointer;"
                 >
                   <span
-                    style="font-weight: bold;"
+                    style="font-weight: bold; color: inherit;"
                   >
                     ...
                   </span>
                 </span>
                 <span
-                  style="font-weight: bold;"
+                  style="font-weight: bold; color: inherit;"
                 >
                   ]
                 </span>
@@ -163,19 +163,19 @@ describe(`${Component.displayName} component`, () => {
               style="padding-left: 1rem;"
             >
               <span
-                style="font-weight: bold; color: rgb(119, 119, 119);"
+                style="font-weight: bold; color: #777;"
               >
                 obj
               </span>
               <span
-                style="font-weight: bold;"
+                style="font-weight: bold; color: inherit;"
               >
                 :
               </span>
                
               <span>
                 <span
-                  style="font-weight: bold;"
+                  style="font-weight: bold; color: inherit;"
                 >
                   {
                 </span>
@@ -183,20 +183,20 @@ describe(`${Component.displayName} component`, () => {
                   style="cursor: pointer;"
                 >
                   <span
-                    style="font-weight: bold;"
+                    style="font-weight: bold; color: inherit;"
                   >
                     ...
                   </span>
                 </span>
                 <span
-                  style="font-weight: bold;"
+                  style="font-weight: bold; color: inherit;"
                 >
                   }
                 </span>
               </span>
             </div>
             <span
-              style="font-weight: bold;"
+              style="font-weight: bold; color: inherit;"
             >
               }
             </span>
@@ -207,8 +207,8 @@ describe(`${Component.displayName} component`, () => {
   })
 
   it('should throw an error if the data is circular', () => {
-    jest.spyOn(console, 'error').mockImplementation(jest.fn)
+    vi.spyOn(console, 'error').mockImplementation(() => vi.fn())
     expect(() => render(<Component data={circ} />)).toThrowError()
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 })

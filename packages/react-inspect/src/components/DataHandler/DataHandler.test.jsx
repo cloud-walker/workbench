@@ -1,10 +1,10 @@
-import {render} from '@testing-library/react'
+import { render } from '@testing-library/react'
 import React from 'react'
-import data, {arr, fun, nil, num, str} from '../../mocks/data'
+import { describe, expect, it } from 'vitest'
 
+import data, { arr, fun, nil, num, str } from '../../mocks/data'
 import Component from './index'
 
-/* eslint-env jest */
 describe(`${Component.displayName} component`, () => {
   it('should render properly if data is undefined', () => {
     const {container} = render(<Component />)
@@ -81,7 +81,7 @@ describe(`${Component.displayName} component`, () => {
       <div>
         <span>
           <span
-            style="font-weight: bold;"
+            style="font-weight: bold; color: inherit;"
           >
             {
           </span>
@@ -89,13 +89,13 @@ describe(`${Component.displayName} component`, () => {
             style="cursor: pointer;"
           >
             <span
-              style="font-weight: bold;"
+              style="font-weight: bold; color: inherit;"
             >
               ...
             </span>
           </span>
           <span
-            style="font-weight: bold;"
+            style="font-weight: bold; color: inherit;"
           >
             }
           </span>
@@ -110,7 +110,7 @@ describe(`${Component.displayName} component`, () => {
       <div>
         <span>
           <span
-            style="font-weight: bold;"
+            style="font-weight: bold; color: inherit;"
           >
             [
           </span>
@@ -118,13 +118,13 @@ describe(`${Component.displayName} component`, () => {
             style="cursor: pointer;"
           >
             <span
-              style="font-weight: bold;"
+              style="font-weight: bold; color: inherit;"
             >
               ...
             </span>
           </span>
           <span
-            style="font-weight: bold;"
+            style="font-weight: bold; color: inherit;"
           >
             ]
           </span>
