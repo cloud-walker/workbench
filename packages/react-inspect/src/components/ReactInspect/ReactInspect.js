@@ -1,8 +1,6 @@
-import React from 'react'
-import allPass from 'ramda/src/allPass'
-import complement from 'ramda/src/complement'
-import is from 'ramda/src/is'
 import isCircular from 'just-is-circular'
+import {allPass, complement, is} from 'ramda'
+import React from 'react'
 
 import DataHandler from '../DataHandler'
 import Layout from '../Layout'

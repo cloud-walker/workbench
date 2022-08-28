@@ -1,16 +1,12 @@
+import {addIndex, is, keys, map, pipe} from 'ramda'
 import React from 'react'
-import is from 'ramda/src/is'
-import pipe from 'ramda/src/pipe'
-import addIndex from 'ramda/src/addIndex'
-import map from 'ramda/src/map'
-import keys from 'ramda/src/keys'
 
 import stripFunction from '../../utils/stripFunction'
+import CollapseHandler from '../CollapseHandler'
+import Key from '../Key'
 import Level from '../Level'
 import Punctuation from '../Punctuation'
-import Key from '../Key'
 import Value from '../Value'
-import CollapseHandler from '../CollapseHandler'
 
 const Component = class extends React.Component {
   static displayName = 'ReactInspectDataHandler'
