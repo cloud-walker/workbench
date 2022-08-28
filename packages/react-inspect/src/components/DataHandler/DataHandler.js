@@ -1,7 +1,6 @@
-import {addIndex, is, keys, map, pipe} from 'ramda'
 import React from 'react'
+import {keys, map, pipe} from 'remeda'
 
-import stripFunction from '../../utils/stripFunction'
 import CollapseHandler from '../CollapseHandler'
 import Key from '../Key'
 import Level from '../Level'
@@ -17,18 +16,18 @@ const Component = class extends React.Component {
   render() {
     const {data, outer, theme} = this.props
 
-    if (is(String)(data)) {
+    if (typeof data == 'string') {
       return <Value type="string" theme={theme}>{`"${data}"`}</Value>
     }
 
-    if (is(Number)(data)) {
+    if (typeof data == 'number') {
       return <Value type="number" theme={theme}>{`${data}`}</Value>
     }
 
-    if (is(Function)(data)) {
+    if (typeof data == 'function') {
       const value = (
         <Value type="function" theme={theme}>
-          {stripFunction(String(data))}
+          {String(data).trim()}
         </Value>
       )
 
@@ -45,12 +44,12 @@ const Component = class extends React.Component {
       )
     }
 
-    if (is(Array)(data)) {
-      const value = addIndex(map)((x, i) => (
+    if (Array.isArray(data)) {
+      const value = data.map((x, i) => (
         <Level key={i}>
           <Component data={x} theme={theme} />
         </Level>
-      ))(data)
+      ))
 
       return (
         <span>
@@ -69,8 +68,9 @@ const Component = class extends React.Component {
       )
     }
 
-    if (is(Object)(data)) {
+    if (data != null && typeof data == 'object') {
       const value = pipe(
+        data,
         keys,
         map((x) => (
           <Level key={x}>
@@ -79,7 +79,7 @@ const Component = class extends React.Component {
             <Component data={data[x]} theme={theme} />
           </Level>
         )),
-      )(data)
+      )
 
       return (
         <span>

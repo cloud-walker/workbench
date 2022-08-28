@@ -1,12 +1,16 @@
 import isCircular from 'just-is-circular'
-import {allPass, complement, is} from 'ramda'
 import React from 'react'
 
 import DataHandler from '../DataHandler'
 import Layout from '../Layout'
 
 const Component = ({data, theme}) => {
-  if (allPass([complement(is(Function)), is(Object), isCircular])(data)) {
+  if (
+    data != null &&
+    typeof data != 'function' &&
+    typeof data == 'object' &&
+    isCircular(data)
+  ) {
     throw new Error(
       'ReactInspect Error: circular data inspection not supported',
     )

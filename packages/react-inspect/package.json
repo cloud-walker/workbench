@@ -50,8 +50,7 @@
     "tsup": "^6.2.3"
   },
   "dependencies": {
-    "just-is-circular": "^2.1.1",
-    "ramda": "^0.28.0"
+    "just-is-circular": "^2.1.1"
   },
   "publishConfig": {
     "access": "public"
