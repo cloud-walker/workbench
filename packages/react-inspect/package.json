@@ -4,8 +4,8 @@
   "description": "Because json stringify is not enough",
   "scripts": {
     "lint": "eslint --ignore-path=\"../../.gitignore\" .",
-    "test": "jest --watch",
-    "coverage": "jest --coverage",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
     "storybook": "start-storybook -p 9000 -c .storybook",
     "build": "tsup src/main.js"
   },
