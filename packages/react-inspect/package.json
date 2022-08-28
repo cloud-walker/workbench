@@ -3,9 +3,9 @@
   "version": "0.6.0",
   "description": "Because json stringify is not enough",
   "scripts": {
-    "lint": "eslint src/**",
-    "test": "jest --watch",
-    "coverage": "jest --coverage",
+    "lint": "eslint --ignore-path=\"../../.gitignore\" .",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
     "storybook": "start-storybook -p 9000 -c .storybook",
     "build": "tsup src/main.js"
   },
@@ -42,12 +42,11 @@
     "@testing-library/react": "^13.3.0",
     "eslint": "^8.23.0",
     "eslint-plugin-react": "^7.3.0",
-    "jest": "^29.0.1",
-    "jest-environment-jsdom": "^29.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sanitize.css": "^13.0.0",
-    "tsup": "^6.2.3"
+    "tsup": "^6.2.3",
+    "vitest": "^0.22.1"
   },
   "dependencies": {
     "just-is-circular": "^2.1.1"

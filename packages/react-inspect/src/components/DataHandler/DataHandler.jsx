@@ -1,5 +1,4 @@
 import React from 'react'
-import {keys, map, pipe} from 'remeda'
 
 import CollapseHandler from '../CollapseHandler'
 import Key from '../Key'
@@ -69,17 +68,13 @@ const Component = class extends React.Component {
     }
 
     if (data != null && typeof data == 'object') {
-      const value = pipe(
-        data,
-        keys,
-        map((x) => (
-          <Level key={x}>
-            <Key theme={theme}>{x}</Key>
-            <Punctuation theme={theme}>:</Punctuation>{' '}
-            <Component data={data[x]} theme={theme} />
-          </Level>
-        )),
-      )
+      const value = Object.keys(data).map((x) => (
+        <Level key={x}>
+          <Key theme={theme}>{x}</Key>
+          <Punctuation theme={theme}>:</Punctuation>{' '}
+          <Component data={data[x]} theme={theme} />
+        </Level>
+      ))
 
       return (
         <span>
