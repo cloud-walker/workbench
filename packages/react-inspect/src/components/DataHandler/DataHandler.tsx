@@ -1,4 +1,4 @@
-import React from 'react'
+import {Component} from 'react'
 
 import CollapseHandler from '../CollapseHandler'
 import Key from '../Key'
@@ -6,7 +6,11 @@ import Level from '../Level'
 import Punctuation from '../Punctuation'
 import Value from '../Value'
 
-const Component = class extends React.Component {
+class DataHandler extends Component<{
+  theme: 'gloom' | 'default'
+  data: Record<string, unknown>
+  outer: boolean
+}> {
   static displayName = 'ReactInspectDataHandler'
   static defaultProps = {
     outer: false,
@@ -58,7 +62,11 @@ const Component = class extends React.Component {
           ) : (
             <CollapseHandler>
               {(show) =>
-                show ? value : <Punctuation theme={theme}>...</Punctuation>
+                show ? (
+                  <>{value}</>
+                ) : (
+                  <Punctuation theme={theme}>...</Punctuation>
+                )
               }
             </CollapseHandler>
           )}
@@ -84,7 +92,11 @@ const Component = class extends React.Component {
           ) : (
             <CollapseHandler>
               {(show) =>
-                show ? value : <Punctuation theme={theme}>...</Punctuation>
+                show ? (
+                  <>{value}</>
+                ) : (
+                  <Punctuation theme={theme}>...</Punctuation>
+                )
               }
             </CollapseHandler>
           )}
@@ -97,4 +109,4 @@ const Component = class extends React.Component {
   }
 }
 
-export default Component
+export default DataHandler

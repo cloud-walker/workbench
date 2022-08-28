@@ -1,6 +1,6 @@
-import React from 'react'
+import {PropsWithChildren} from 'react'
 
-const Component = ({children}) => (
+const Component = ({children}: PropsWithChildren<unknown>) => (
   <div style={{paddingLeft: '1rem'}}>{children}</div>
 )
 

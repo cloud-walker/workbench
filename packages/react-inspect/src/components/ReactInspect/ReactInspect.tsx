@@ -1,10 +1,16 @@
 import isCircular from 'just-is-circular'
-import React from 'react'
+import {PropsWithoutRef} from 'react'
 
 import DataHandler from '../DataHandler'
 import Layout from '../Layout'
 
-const Component = ({data, theme}) => {
+const Component = ({
+  data,
+  theme = 'default',
+}: PropsWithoutRef<{
+  theme?: 'gloom' | 'default'
+  data: Record<string, unknown>
+}>) => {
   if (
     data != null &&
     typeof data != 'function' &&

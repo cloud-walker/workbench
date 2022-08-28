@@ -1,6 +1,13 @@
-import React from 'react'
+import {PropsWithChildren} from 'react'
 
-const Component = ({children, type, theme}) => (
+const Component = ({
+  children,
+  type,
+  theme,
+}: PropsWithChildren<{
+  type: string
+  theme: 'gloom' | 'default'
+}>) => (
   <span
     style={{
       fontWeight: 'bold',

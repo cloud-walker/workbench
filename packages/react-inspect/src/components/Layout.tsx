@@ -1,6 +1,9 @@
-import React from 'react'
+import {PropsWithChildren} from 'react'
 
-const Component = ({children, theme}) => (
+const Component = ({
+  children,
+  theme,
+}: PropsWithChildren<{theme: 'gloom' | 'default'}>) => (
   <pre
     style={{
       lineHeight: 1.25,

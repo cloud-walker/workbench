@@ -8,7 +8,6 @@ module.exports = {
     },
     {
       files: ['src/**/*.{js,jsx}'],
-      parser: '@babel/eslint-parser',
       extends: ['eslint:recommended', 'plugin:react/recommended'],
       settings: {
         react: {
