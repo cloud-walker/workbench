@@ -7,8 +7,14 @@ module.exports = {
       env: {node: true},
     },
     {
-      files: ['src/**/*.{js,jsx}'],
-      extends: ['eslint:recommended', 'plugin:react/recommended'],
+      files: ['src/**/*.ts?(x)'],
+      parser: '@typescript-eslint/parser',
+      plugins: ['@typescript-eslint'],
+      extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:react/recommended',
+      ],
       settings: {
         react: {
           version: 'detect',
@@ -16,6 +22,7 @@ module.exports = {
       },
       rules: {
         'react/prop-types': 'off',
+        '@typescript-eslint/array-type': 'warn',
       },
     },
     {
