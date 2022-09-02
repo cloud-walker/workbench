@@ -3,6 +3,7 @@
   "version": "0.6.1",
   "description": "Because json stringify is not enough",
   "scripts": {
+    "types": "tsc --noEmit",
     "lint": "eslint --ignore-path=\"../../.gitignore\" .",
     "test": "vitest",
     "coverage": "vitest run --coverage",
@@ -50,6 +51,7 @@
     "react-dom": "^18.2.0",
     "sanitize.css": "^13.0.0",
     "tsup": "^6.2.3",
+    "typescript": "^4.8.2",
     "vitest": "^0.22.1"
   },
   "dependencies": {

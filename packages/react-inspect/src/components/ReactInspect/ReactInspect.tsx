@@ -1,16 +1,16 @@
 import isCircular from 'just-is-circular'
 import {PropsWithoutRef} from 'react'
 
-import DataHandler from '../DataHandler'
-import Layout from '../Layout'
+import {DataHandler} from '../DataHandler'
+import {Layout} from '../Layout'
 
-const Component = ({
+export function Inspect<TData>({
   data,
   theme = 'default',
 }: PropsWithoutRef<{
   theme?: 'gloom' | 'default'
-  data: Record<string, unknown>
-}>) => {
+  data: TData
+}>) {
   if (
     data != null &&
     typeof data != 'function' &&
@@ -28,7 +28,3 @@ const Component = ({
     </Layout>
   )
 }
-
-Component.displayName = 'ReactInspect'
-
-export default Component

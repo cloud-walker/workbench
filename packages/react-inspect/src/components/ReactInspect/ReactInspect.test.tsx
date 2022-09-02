@@ -1,13 +1,12 @@
-import { render } from '@testing-library/react'
-import React from 'react'
-import { describe, expect, it, vi } from 'vitest'
+import {render} from '@testing-library/react'
+import {describe, expect, it, vi} from 'vitest'
 
-import data, { circ } from '../../mocks/data'
-import Component from './index'
+import {Inspect} from '.'
+import data, {circ} from '../../mocks/data'
 
-describe(`${Component.displayName} component`, () => {
+describe('Inspect component', () => {
   it('should render properly', () => {
-    const {container} = render(<Component data={data} />)
+    const {container} = render(<Inspect data={data} />)
     expect(container).toMatchInlineSnapshot(`
       <div>
         <pre
@@ -208,7 +207,7 @@ describe(`${Component.displayName} component`, () => {
 
   it('should throw an error if the data is circular', () => {
     vi.spyOn(console, 'error').mockImplementation(() => vi.fn())
-    expect(() => render(<Component data={circ} />)).toThrowError()
+    expect(() => render(<Inspect data={circ} />)).toThrowError()
     vi.restoreAllMocks()
   })
 })

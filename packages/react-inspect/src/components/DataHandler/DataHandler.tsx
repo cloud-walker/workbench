@@ -1,21 +1,14 @@
 import {Component} from 'react'
 
-import CollapseHandler from '../CollapseHandler'
-import Key from '../Key'
-import Level from '../Level'
-import Punctuation from '../Punctuation'
-import Value from '../Value'
+import {CollapseHandler} from '../CollapseHandler'
+import {Key} from '../Key'
+import {Level} from '../Level'
+import {Punctuation} from '../Punctuation'
+import {Value} from '../Value'
 
-class DataHandler extends Component<{
+export class DataHandler<TData> extends Component<{
   theme?: 'gloom' | 'default'
-  data?:
-    | null
-    | undefined
-    | number
-    | string
-    | Record<string, unknown>
-    | unknown[]
-    | ((...args: any[]) => any)
+  data?: TData
   outer: boolean
 }> {
   static displayName = 'ReactInspectDataHandler'
@@ -47,7 +40,7 @@ class DataHandler extends Component<{
 
       return (
         <CollapseHandler>
-          {(show) =>
+          {show =>
             show ? value : {...value, props: {...value.props, children: 'fn'}}
           }
         </CollapseHandler>
@@ -68,7 +61,7 @@ class DataHandler extends Component<{
             value
           ) : (
             <CollapseHandler>
-              {(show) =>
+              {show =>
                 show ? (
                   <>{value}</>
                 ) : (
@@ -83,7 +76,7 @@ class DataHandler extends Component<{
     }
 
     if (data != null && typeof data == 'object') {
-      const value = Object.keys(data).map((x) => (
+      const value = Object.keys(data).map(x => (
         <Level key={x}>
           <Key theme={theme}>{x}</Key>
           <Punctuation theme={theme}>:</Punctuation>{' '}
@@ -98,7 +91,7 @@ class DataHandler extends Component<{
             value
           ) : (
             <CollapseHandler>
-              {(show) =>
+              {show =>
                 show ? (
                   <>{value}</>
                 ) : (
@@ -115,5 +108,3 @@ class DataHandler extends Component<{
     return <Value type="keyword" theme={theme}>{`${data}`}</Value>
   }
 }
-
-export default DataHandler

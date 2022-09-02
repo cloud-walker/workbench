@@ -1,8 +1,8 @@
 import {storiesOf} from '@storybook/react'
 
+import {Inspect} from '.'
 import data from '../../mocks/data'
-import Component from './index'
 
-storiesOf(Component.displayName, module)
-  .add('default', () => <Component data={data} />)
-  .add('gloom theme', () => <Component data={data} theme="gloom" />)
+storiesOf('Inspect', module)
+  .add('default', () => <Inspect data={data} />)
+  .add('gloom theme', () => <Inspect data={data} theme="gloom" />)

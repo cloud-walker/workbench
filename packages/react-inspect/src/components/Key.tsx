@@ -1,26 +1,24 @@
 import {PropsWithChildren} from 'react'
 
-const Component = ({
+export function Key({
   children,
   theme,
-}: PropsWithChildren<{theme: 'gloom' | 'default'}>) => (
-  <span
-    style={{
-      fontWeight: 'bold',
-      color: (() => {
-        switch (theme) {
-          case 'gloom':
-            return '#6DFEDF'
-          default:
-            return '#777'
-        }
-      })(),
-    }}
-  >
-    {children}
-  </span>
-)
-
-Component.displayName = 'ReactInspectKey'
-
-export default Component
+}: PropsWithChildren<{theme: 'gloom' | 'default'}>) {
+  return (
+    <span
+      style={{
+        fontWeight: 'bold',
+        color: (() => {
+          switch (theme) {
+            case 'gloom':
+              return '#6DFEDF'
+            default:
+              return '#777'
+          }
+        })(),
+      }}
+    >
+      {children}
+    </span>
+  )
+}

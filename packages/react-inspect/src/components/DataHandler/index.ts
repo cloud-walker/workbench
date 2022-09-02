@@ -1,1 +1,1 @@
-export {default} from './DataHandler'
+export * from './DataHandler'

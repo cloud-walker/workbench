@@ -1,12 +1,12 @@
 import {render} from '@testing-library/react'
 import {describe, expect, it} from 'vitest'
 
+import {DataHandler} from '.'
 import data, {arr, fun, nil, num, str} from '../../mocks/data'
-import Component from './index'
 
-describe(`${Component.displayName} component`, () => {
+describe('DataHandler component', () => {
   it('should render properly if data is undefined', () => {
-    const {container} = render(<Component />)
+    const {container} = render(<DataHandler />)
     expect(container).toMatchInlineSnapshot(`
       <div>
         <span
@@ -19,7 +19,7 @@ describe(`${Component.displayName} component`, () => {
   })
 
   it('should render properly if data is null', () => {
-    const {container} = render(<Component data={nil} />)
+    const {container} = render(<DataHandler data={nil} />)
     expect(container).toMatchInlineSnapshot(`
       <div>
         <span
@@ -32,7 +32,7 @@ describe(`${Component.displayName} component`, () => {
   })
 
   it('should render properly if data is a number', () => {
-    const {container} = render(<Component data={num} />)
+    const {container} = render(<DataHandler data={num} />)
     expect(container).toMatchInlineSnapshot(`
       <div>
         <span
@@ -45,7 +45,7 @@ describe(`${Component.displayName} component`, () => {
   })
 
   it('should render properly if data is a string', () => {
-    const {container} = render(<Component data={str} />)
+    const {container} = render(<DataHandler data={str} />)
     expect(container).toMatchInlineSnapshot(`
       <div>
         <span
@@ -58,7 +58,7 @@ describe(`${Component.displayName} component`, () => {
   })
 
   it('should render properly if data is a function', () => {
-    const {container} = render(<Component data={fun} />)
+    const {container} = render(<DataHandler data={fun} />)
     expect(container).toMatchInlineSnapshot(`
       <div>
         <span
@@ -75,7 +75,7 @@ describe(`${Component.displayName} component`, () => {
   })
 
   it('should render properly if data is an object', () => {
-    const {container} = render(<Component data={data} />)
+    const {container} = render(<DataHandler data={data} />)
     expect(container).toMatchInlineSnapshot(`
       <div>
         <span>
@@ -104,7 +104,7 @@ describe(`${Component.displayName} component`, () => {
   })
 
   it('should render properly if data is an array', () => {
-    const {container} = render(<Component data={arr} />)
+    const {container} = render(<DataHandler data={arr} />)
     expect(container).toMatchInlineSnapshot(`
       <div>
         <span>

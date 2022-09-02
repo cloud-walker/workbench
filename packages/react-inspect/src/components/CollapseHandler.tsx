@@ -1,6 +1,6 @@
 import {Component, ReactElement} from 'react'
 
-class CollapseHandler extends Component<{
+export class CollapseHandler extends Component<{
   children: (show: boolean) => ReactElement
 }> {
   static displayName = 'ReactInspectCollapseHandler'
@@ -10,7 +10,7 @@ class CollapseHandler extends Component<{
   render() {
     return (
       <span
-        onClick={(e) => {
+        onClick={e => {
           e.stopPropagation()
           this.setState({show: !this.state.show})
         }}
@@ -21,5 +21,3 @@ class CollapseHandler extends Component<{
     )
   }
 }
-
-export default CollapseHandler
