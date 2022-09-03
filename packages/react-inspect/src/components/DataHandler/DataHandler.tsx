@@ -7,8 +7,15 @@ import Punctuation from '../Punctuation'
 import Value from '../Value'
 
 class DataHandler extends Component<{
-  theme: 'gloom' | 'default'
-  data: Record<string, unknown>
+  theme?: 'gloom' | 'default'
+  data?:
+    | null
+    | undefined
+    | number
+    | string
+    | Record<string, unknown>
+    | unknown[]
+    | ((...args: any[]) => any)
   outer: boolean
 }> {
   static displayName = 'ReactInspectDataHandler'
@@ -17,7 +24,7 @@ class DataHandler extends Component<{
   }
 
   render() {
-    const {data, outer, theme} = this.props
+    const {data, outer, theme = 'default'} = this.props
 
     if (typeof data == 'string') {
       return <Value type="string" theme={theme}>{`"${data}"`}</Value>

@@ -1,8 +1,7 @@
-import { render } from '@testing-library/react'
-import React from 'react'
-import { describe, expect, it } from 'vitest'
+import {render} from '@testing-library/react'
+import {describe, expect, it} from 'vitest'
 
-import data, { arr, fun, nil, num, str } from '../../mocks/data'
+import data, {arr, fun, nil, num, str} from '../../mocks/data'
 import Component from './index'
 
 describe(`${Component.displayName} component`, () => {
