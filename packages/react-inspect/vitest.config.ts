@@ -1,19 +1,18 @@
 import react from '@vitejs/plugin-react'
 import {defineConfig} from 'vitest/config'
 
-const COVERAGE_THRESHOLD = 100
-
 export default defineConfig({
-  plugins: [react],
+  plugins: [react()],
   test: {
     environment: 'happy-dom',
     coverage: {
       all: true,
-      functions: COVERAGE_THRESHOLD,
-      branches: COVERAGE_THRESHOLD,
-      lines: COVERAGE_THRESHOLD,
-      statements: COVERAGE_THRESHOLD,
+      functions: 50,
+      branches: 90,
+      lines: 90,
+      statements: 90,
       include: ['src/**/*.ts', 'src/**/*.tsx'],
+      exclude: ['src/**/*.stories.tsx', 'src/mocks/**'],
       skipFull: true,
     },
   },
