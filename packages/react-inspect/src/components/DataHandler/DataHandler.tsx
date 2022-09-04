@@ -1,19 +1,23 @@
-import React from 'react'
+import {Component} from 'react'
 
-import CollapseHandler from '../CollapseHandler'
-import Key from '../Key'
-import Level from '../Level'
-import Punctuation from '../Punctuation'
-import Value from '../Value'
+import {CollapseHandler} from '../CollapseHandler'
+import {Key} from '../Key'
+import {Level} from '../Level'
+import {Punctuation} from '../Punctuation'
+import {Value} from '../Value'
 
-const Component = class extends React.Component {
+export class DataHandler extends Component<{
+  theme?: 'gloom' | 'default'
+  data: unknown
+  outer: boolean
+}> {
   static displayName = 'ReactInspectDataHandler'
   static defaultProps = {
     outer: false,
   }
 
   render() {
-    const {data, outer, theme} = this.props
+    const {data, outer, theme = 'default'} = this.props
 
     if (typeof data == 'string') {
       return <Value type="string" theme={theme}>{`"${data}"`}</Value>
@@ -46,7 +50,7 @@ const Component = class extends React.Component {
     if (Array.isArray(data)) {
       const value = data.map((x, i) => (
         <Level key={i}>
-          <Component data={x} theme={theme} />
+          <DataHandler data={x} theme={theme} />
         </Level>
       ))
 
@@ -58,7 +62,11 @@ const Component = class extends React.Component {
           ) : (
             <CollapseHandler>
               {(show) =>
-                show ? value : <Punctuation theme={theme}>...</Punctuation>
+                show ? (
+                  <>{value}</>
+                ) : (
+                  <Punctuation theme={theme}>...</Punctuation>
+                )
               }
             </CollapseHandler>
           )}
@@ -67,12 +75,12 @@ const Component = class extends React.Component {
       )
     }
 
-    if (data != null && typeof data == 'object') {
+    if (isRecord(data)) {
       const value = Object.keys(data).map((x) => (
         <Level key={x}>
           <Key theme={theme}>{x}</Key>
           <Punctuation theme={theme}>:</Punctuation>{' '}
-          <Component data={data[x]} theme={theme} />
+          <DataHandler data={data[x]} theme={theme} />
         </Level>
       ))
 
@@ -84,7 +92,11 @@ const Component = class extends React.Component {
           ) : (
             <CollapseHandler>
               {(show) =>
-                show ? value : <Punctuation theme={theme}>...</Punctuation>
+                show ? (
+                  <>{value}</>
+                ) : (
+                  <Punctuation theme={theme}>...</Punctuation>
+                )
               }
             </CollapseHandler>
           )}
@@ -97,4 +109,6 @@ const Component = class extends React.Component {
   }
 }
 
-export default Component
+function isRecord(data: unknown): data is Record<string, unknown> {
+  return data != null && typeof data == 'object'
+}
