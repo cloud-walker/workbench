@@ -3,7 +3,8 @@
     "strict": true,
     "jsx": "preserve",
     "moduleResolution": "node",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noImplicitAny": true
   },
   "include": ["src"]
 }

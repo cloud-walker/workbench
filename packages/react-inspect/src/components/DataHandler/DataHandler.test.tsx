@@ -6,7 +6,7 @@ import data, {arr, fun, nil, num, str} from '../../mocks/data'
 
 describe('DataHandler component', () => {
   it('should render properly if data is undefined', () => {
-    const {container} = render(<DataHandler />)
+    const {container} = render(<DataHandler data={undefined} />)
     expect(container).toMatchInlineSnapshot(`
       <div>
         <span

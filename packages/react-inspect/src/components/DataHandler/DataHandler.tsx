@@ -6,9 +6,9 @@ import {Level} from '../Level'
 import {Punctuation} from '../Punctuation'
 import {Value} from '../Value'
 
-export class DataHandler<TData> extends Component<{
+export class DataHandler extends Component<{
   theme?: 'gloom' | 'default'
-  data?: TData
+  data: unknown
   outer: boolean
 }> {
   static displayName = 'ReactInspectDataHandler'
@@ -40,7 +40,7 @@ export class DataHandler<TData> extends Component<{
 
       return (
         <CollapseHandler>
-          {show =>
+          {(show) =>
             show ? value : {...value, props: {...value.props, children: 'fn'}}
           }
         </CollapseHandler>
@@ -61,7 +61,7 @@ export class DataHandler<TData> extends Component<{
             value
           ) : (
             <CollapseHandler>
-              {show =>
+              {(show) =>
                 show ? (
                   <>{value}</>
                 ) : (
@@ -75,8 +75,8 @@ export class DataHandler<TData> extends Component<{
       )
     }
 
-    if (data != null && typeof data == 'object') {
-      const value = Object.keys(data).map(x => (
+    if (isRecord(data)) {
+      const value = Object.keys(data).map((x) => (
         <Level key={x}>
           <Key theme={theme}>{x}</Key>
           <Punctuation theme={theme}>:</Punctuation>{' '}
@@ -91,7 +91,7 @@ export class DataHandler<TData> extends Component<{
             value
           ) : (
             <CollapseHandler>
-              {show =>
+              {(show) =>
                 show ? (
                   <>{value}</>
                 ) : (
@@ -107,4 +107,8 @@ export class DataHandler<TData> extends Component<{
 
     return <Value type="keyword" theme={theme}>{`${data}`}</Value>
   }
+}
+
+function isRecord(data: unknown): data is Record<string, unknown> {
+  return data != null && typeof data == 'object'
 }
