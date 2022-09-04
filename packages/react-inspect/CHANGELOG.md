@@ -1,5 +1,16 @@
 # @cloudwalker/react-inspect
 
+## 0.8.0
+
+### Minor Changes
+
+- 5a09ac3: - Now the package exports the Inspect component via named export
+  - Updated the readme to reflect the new usage
+
+### Patch Changes
+
+- 108167d: Convert all internal components to function components
+
 ## 0.7.0
 
 ### Minor Changes
