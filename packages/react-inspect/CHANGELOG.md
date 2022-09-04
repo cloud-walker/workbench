@@ -1,5 +1,11 @@
 # @cloudwalker/react-inspect
 
+## 0.7.0
+
+### Minor Changes
+
+- 9aae7f7: Migrate to typescript
+
 ## 0.6.1
 
 ### Patch Changes
