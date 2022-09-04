@@ -1,23 +1,22 @@
-import {Component, ReactElement} from 'react'
+import {ReactElement, useState} from 'react'
 
-export class CollapseHandler extends Component<{
+export function CollapseHandler({
+  children,
+}: {
   children: (show: boolean) => ReactElement
-}> {
-  static displayName = 'ReactInspectCollapseHandler'
+}) {
+  const [show, setShow] = useState(false)
 
-  state = {show: false}
-
-  render() {
-    return (
-      <span
-        onClick={(e) => {
-          e.stopPropagation()
-          this.setState({show: !this.state.show})
-        }}
-        style={{cursor: 'pointer'}}
-      >
-        {this.props.children(this.state.show)}
-      </span>
-    )
-  }
+  return (
+    <span
+      onClick={(e) => {
+        e.stopPropagation()
+        setShow(!show)
+      }}
+      style={{cursor: 'pointer'}}
+    >
+      {children(show)}
+    </span>
+  )
 }
+CollapseHandler.displayName = 'ReactInspectCollapseHandler'
