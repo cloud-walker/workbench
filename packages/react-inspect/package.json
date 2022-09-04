@@ -16,7 +16,11 @@
   "main": "dist/main.js",
   "module": "dist/main.mjs",
   "sideEffects": false,
-  "author": "Luca Barone <baro.luc@gmail.com>",
+  "author": {
+    "name": "Luca Barone",
+    "email": "baro.luc@gmail.com",
+    "url": "https://github.com/cloud-walker"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cloud-walker/workbench"
