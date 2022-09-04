@@ -10,7 +10,7 @@ export class CollapseHandler extends Component<{
   render() {
     return (
       <span
-        onClick={e => {
+        onClick={(e) => {
           e.stopPropagation()
           this.setState({show: !this.state.show})
         }}

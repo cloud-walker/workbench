@@ -50,7 +50,7 @@ export class DataHandler extends Component<{
     if (Array.isArray(data)) {
       const value = data.map((x, i) => (
         <Level key={i}>
-          <Component data={x} theme={theme} />
+          <DataHandler data={x} theme={theme} />
         </Level>
       ))
 
@@ -80,7 +80,7 @@ export class DataHandler extends Component<{
         <Level key={x}>
           <Key theme={theme}>{x}</Key>
           <Punctuation theme={theme}>:</Punctuation>{' '}
-          <Component data={data[x]} theme={theme} />
+          <DataHandler data={data[x]} theme={theme} />
         </Level>
       ))
 

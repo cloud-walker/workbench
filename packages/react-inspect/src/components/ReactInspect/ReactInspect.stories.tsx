@@ -1,8 +1,13 @@
-import {storiesOf} from '@storybook/react'
-
+import {ComponentMeta} from '@storybook/react'
 import {Inspect} from '.'
 import data from '../../mocks/data'
 
-storiesOf('Inspect', module)
-  .add('default', () => <Inspect data={data} />)
-  .add('gloom theme', () => <Inspect data={data} theme="gloom" />)
+const meta: ComponentMeta<typeof Inspect> = {
+  title: 'Inspect',
+  component: Inspect,
+}
+
+export default meta
+
+export const Default = () => <Inspect data={data} />
+export const GloomTheme = () => <Inspect data={data} theme="gloom" />
