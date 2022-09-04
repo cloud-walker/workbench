@@ -1,1 +1,1 @@
-export {Inspect} from './components/ReactInspect'
+export {Inspect} from './components/Inspect'
