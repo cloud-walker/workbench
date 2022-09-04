@@ -7,7 +7,7 @@
     "lint": "eslint --ignore-path=\"../../.gitignore\" .",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "storybook": "start-storybook -p 9000 -c .storybook",
+    "stories": "start-storybook -p 9000 -c .storybook",
     "build": "tsup src/main.ts"
   },
   "files": [

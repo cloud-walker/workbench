@@ -22,7 +22,6 @@ module.exports = {
       },
       rules: {
         'react/prop-types': 'off',
-        '@typescript-eslint/array-type': 'warn',
       },
     },
     {
