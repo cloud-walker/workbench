@@ -12,7 +12,7 @@ export default defineConfig({
       lines: 90,
       statements: 90,
       include: ['src/**/*.ts', 'src/**/*.tsx'],
-      exclude: ['src/**/*.stories.tsx', 'src/mocks/**'],
+      exclude: ['src/**/*.stories.tsx', 'src/**/testUtils.ts'],
       skipFull: true,
     },
   },

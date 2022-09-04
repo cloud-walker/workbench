@@ -2,7 +2,7 @@ import {render} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import {Inspect} from '.'
-import data, {circ} from '../../mocks/data'
+import {circ, data} from '../testUtils'
 
 describe('Inspect component', () => {
   it('should render properly', () => {

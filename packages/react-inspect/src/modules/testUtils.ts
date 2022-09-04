@@ -14,7 +14,7 @@ export const fun = (a: number) => {
 const baseObj = {und, nil, num, str, fun}
 export const arr = Object.values(baseObj)
 
-export default {
+export const data = {
   ...baseObj,
   arr,
   obj: {...baseObj},

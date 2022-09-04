@@ -1,1 +1,1 @@
-export {Inspect} from './components/Inspect'
+export {Inspect} from './modules/Inspect'

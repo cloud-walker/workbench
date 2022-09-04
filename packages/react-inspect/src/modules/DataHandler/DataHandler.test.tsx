@@ -2,7 +2,7 @@ import {render} from '@testing-library/react'
 import {describe, expect, it} from 'vitest'
 
 import {DataHandler} from '.'
-import data, {arr, fun, nil, num, str} from '../../mocks/data'
+import {arr, data, fun, nil, num, str} from '../testUtils'
 
 describe('DataHandler component', () => {
   it('should render properly if data is undefined', () => {
