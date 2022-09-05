@@ -1,5 +1,12 @@
 # @cloudwalker/react-inspect
 
+## 0.8.1
+
+### Patch Changes
+
+- d6dce3e: Set sideEffects to false
+- Fix JSX bundling
+
 ## 0.8.0
 
 ### Minor Changes
