@@ -1,5 +1,11 @@
 # @cloudwalker/react-inspect
 
+## 0.9.0
+
+### Minor Changes
+
+- ab7e781: Remove prop-types as peer dependency
+
 ## 0.8.1
 
 ### Patch Changes

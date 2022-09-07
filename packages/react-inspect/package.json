@@ -1,6 +1,6 @@
 {
   "name": "@cloudwalker/react-inspect",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "description": "Because json stringify is not enough",
   "scripts": {
     "types": "tsc --noEmit",
@@ -36,7 +36,6 @@
     "stringify"
   ],
   "peerDependencies": {
-    "prop-types": "^15.8.1",
     "react": ">=16.8"
   },
   "devDependencies": {
