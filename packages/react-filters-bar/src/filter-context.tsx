@@ -21,6 +21,6 @@ export function useFilterCtx() {
 export function FilterProvider({
   children,
   ...props
-}: PropsWithChildren<Provider>) {
+}: PropsWithChildren<FilterState>) {
   return <FilterCtx.Provider value={props}>{children}</FilterCtx.Provider>;
 }
