@@ -1,0 +1,22 @@
+{
+  "name": "@cloudwalker/react-filters-bar",
+  "version": "0.0.0",
+  "files": [
+    "dist/**"
+  ],
+  "main": "./dist/main.js",
+  "module": "./dist/main.mjs",
+  "types": "./dist/main.d.ts",
+  "sideEffects": false,
+  "author": {
+    "name": "Luca Barone",
+    "email": "baro.luc@gmail.com",
+    "url": "https://github.com/cloud-walker"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "react": "^18.2.0"
+  }
+}
