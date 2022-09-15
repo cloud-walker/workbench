@@ -4,7 +4,16 @@
     "types": {},
     "lint": {},
     "test": {},
-    "coverage": {},
-    "build": {}
+    "coverage": {
+      "outputs": [
+        "coverage/**"
+      ]
+    },
+    "build": {
+      "outputs": [
+        "dist/**",
+        "build/**"
+      ]
+    }
   }
 }
