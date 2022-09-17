@@ -6,10 +6,12 @@
     "test": "turbo run test",
     "coverage": "turbo run coverage",
     "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
     "release": "changeset publish"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "devDependencies": {
     "@changesets/cli": "^2.24.4",

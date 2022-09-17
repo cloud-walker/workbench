@@ -1,18 +1,19 @@
 {
   "name": "@cloudwalker/dom-utils",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "types": "tsc --noEmit",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "build": "tsup src/main.ts"
+    "build": "tsup src/main.ts",
+    "dev": "tsup src/main.ts --watch"
   },
   "files": [
     "dist/**"
   ],
-  "main": "./dist/main.js",
-  "module": "./dist/main.mjs",
+  "main": "./dist/main.cjs",
+  "module": "./dist/main.js",
   "types": "./dist/main.d.ts",
   "sideEffects": false,
   "devDependencies": {
