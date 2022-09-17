@@ -5,15 +5,11 @@
     "lint": {},
     "test": {},
     "coverage": {
-      "outputs": [
-        "coverage/**"
-      ]
+      "outputs": ["coverage/**"]
     },
     "build": {
-      "outputs": [
-        "dist/**",
-        "build/**"
-      ]
+      "outputs": ["dist/**", "build/**"],
+      "dependsOn": ["^build"]
     },
     "dev": {
       "cache": false

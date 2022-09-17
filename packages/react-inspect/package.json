@@ -8,7 +8,8 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "stories": "start-storybook -p 9000 -c .storybook",
-    "build": "tsup src/main.ts"
+    "build": "tsup src/main.ts",
+    "dev": "tsup src/main.ts --watch"
   },
   "files": [
     "dist/**"
