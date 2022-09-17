@@ -1,6 +1,8 @@
-import { getBySelector } from "@cloudwalker/dom-utils";
-import { createRoot } from "react-dom/client";
+import {getBySelector} from '@cloudwalker/dom-utils'
+import {createRoot} from 'react-dom/client'
 
-import { App } from "./App";
+import './global.css'
 
-createRoot(getBySelector("#root")).render(<App />);
+import {App} from './App'
+
+createRoot(getBySelector('#root')).render(<App />)
