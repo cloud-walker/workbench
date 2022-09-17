@@ -1,10 +1,7 @@
-import {ReactElement, useState} from 'react'
+import {RenderProp} from '@cloudwalker/react-utils'
+import {useState} from 'react'
 
-export function CollapseHandler({
-  children,
-}: {
-  children: (show: boolean) => ReactElement
-}) {
+export function CollapseHandler({children}: {children: RenderProp<boolean>}) {
   const [show, setShow] = useState(false)
 
   return (
