@@ -6,7 +6,8 @@
     "types": "tsc --noEmit",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "build": "tsup src/main.ts"
+    "build": "tsup src/main.ts",
+    "dev": "tsup src/main.ts --watch"
   },
   "files": [
     "dist/**"
