@@ -2,41 +2,87 @@ import {faker} from '@faker-js/faker'
 import {Fragment, ReactNode, useId, useState} from 'react'
 import {makeTask, Task} from './task'
 
-const initialTasks = Array.from({length: 50}, makeTask)
-const initialFilters: Array<{
-  field: 'isCompleted' | 'content' | 'estimate'
-  operator: 'is' | 'is_not' | 'contains' | 'not_contains'
-  value: boolean | number | string
-}> = []
+type MaybeArray<T> = T | T[]
 
-type FiltersMap = Record<
-  string,
-  {
-    renderFilter: <
-      TOperator extends string,
-      TValue extends boolean | number | string,
-    >(props: {
-      operator: TOperator
-      value: TValue
-      setOperator: (operator: TOperator) => void
-      setValue: (value: TValue) => void
-      remove: () => void
-    }) => ReactNode
-    defaultValue: boolean | number | string
-    defaultOperator: string
-  }
+type FilterValue = MaybeArray<string | number | boolean | Date>
+
+type Filter<
+  TField extends string,
+  TOperator extends string,
+  TValue extends FilterValue,
+> = {
+  field: TField
+  operator: TOperator
+  value: TValue
+}
+
+type BoolFilter<TField extends string> = Filter<TField, 'is', boolean>
+type TextFilter<TField extends string> = Filter<
+  TField,
+  'is' | 'is_not' | 'contains' | 'not_contains',
+  string
+>
+type NumberFilter<TField extends string> = Filter<
+  TField,
+  'is' | 'is_not' | 'lt' | 'lte' | 'gt' | 'gte',
+  number
+>
+type ChoicesFilter<TField extends string> = Filter<
+  TField,
+  'any_of' | 'not_of' | 'all_of',
+  string[]
 >
 
-const filtersMap: FiltersMap = {
+type FilterableTaskFields = keyof Pick<
+  Task,
+  'categories' | 'isCompleted' | 'content'
+>
+
+type TaskFilter =
+  | BoolFilter<'isCompleted'>
+  | TextFilter<'content'>
+  | ChoicesFilter<'categories'>
+
+type FilterDef<
+  TFilter extends Filter<string, string, FilterValue> = Filter<
+    string,
+    string,
+    FilterValue
+  >,
+> = {
+  defaultValue: TFilter['value']
+  defaultOperator: TFilter['operator']
+  getDefaultState: () => TFilter
+  renderFilter: {
+    (props: {
+      operator: TFilter['operator']
+      value: TFilter['value']
+      setValue: (transform: (value: TFilter) => TFilter) => void
+      setOperator: (transform: (value: TFilter) => TFilter) => void
+      remove: () => void
+    }): ReactNode
+  }
+}
+
+type TaskFiltersDef = {
+  [k in FilterableTaskFields]: FilterDef<Extract<TaskFilter, {field: k}>>
+}
+
+const initialTasks = Array.from({length: 50}, makeTask)
+const initialFilters: TaskFilter[] = []
+
+const filtersDef: TaskFiltersDef = {
   isCompleted: {
     defaultValue: false,
     defaultOperator: 'is',
+    getDefaultState: () => ({
+      field: 'isCompleted',
+      operator: 'is',
+      value: false,
+    }),
     renderFilter: ({setValue, value, remove}) => {
-      if (typeof value != 'boolean') {
-        throw Error('value must be boolean')
-      }
       return (
-        <div>
+        <div style={{display: 'flex'}}>
           <div>Task</div>
           <select
             value={value.toString()}
@@ -56,17 +102,25 @@ const filtersMap: FiltersMap = {
   content: {
     defaultValue: '',
     defaultOperator: 'contains',
+    getDefaultState: () => ({
+      field: 'content',
+      operator: 'contains',
+      value: '',
+    }),
     renderFilter: ({setOperator, setValue, operator, value, remove}) => {
-      if (typeof value != 'string') {
-        throw Error('value must be string')
-      }
       return (
-        <div>
+        <div style={{display: 'flex'}}>
           <div>Content</div>
           <select
             value={operator}
             onChange={(e) => {
-              setOperator(e.currentTarget.value)
+              setOperator(
+                e.currentTarget.value as
+                  | 'is'
+                  | 'is_not'
+                  | 'contains'
+                  | 'not_contains',
+              )
             }}
           >
             <option value="is">is</option>
@@ -86,17 +140,30 @@ const filtersMap: FiltersMap = {
       )
     },
   },
-  estimate: {
-    defaultValue: 0,
-    defaultOperator: 'is',
-    renderFilter: ({remove, operator, value}) => {
-      return (
-        <div>
-          estimate {operator} {JSON.stringify(value)}
-          <button onClick={remove}>x</button>
-        </div>
-      )
-    },
+  categories: {
+    defaultOperator: 'any_of',
+    defaultValue: [],
+    getDefaultState: () => ({
+      field: 'categories',
+      operator: 'any_of',
+      value: [],
+    }),
+    renderFilter: ({operator, setOperator, remove}) => (
+      <div style={{display: 'flex'}}>
+        <div>Category</div>
+        <select
+          value={operator}
+          onChange={(e) => {
+            setOperator(e.currentTarget.value as 'any_of' | 'not_of' | 'all_of')
+          }}
+        >
+          <option value="any_of">any</option>
+          <option value="not_of">none</option>
+          <option value="all_of">all</option>
+        </select>
+        <button onClick={remove}>x</button>
+      </div>
+    ),
   },
 }
 
@@ -121,13 +188,13 @@ export function App() {
       if (typeof filter.value == 'string' && typeof fieldValue == 'string') {
         if (
           filter.operator == 'contains' &&
-          !new RegExp(filter.value).test(fieldValue)
+          !new RegExp(filter.value, 'i').test(fieldValue)
         ) {
           return false
         }
         if (
           filter.operator == 'not_contains' &&
-          new RegExp(filter.value).test(fieldValue)
+          new RegExp(filter.value, 'i').test(fieldValue)
         ) {
           return false
         }
@@ -147,42 +214,37 @@ export function App() {
     >
       <h1>Tasks</h1>
       <div style={{display: 'flex', flexWrap: 'wrap', gap: '0.5em'}}>
-        {filters.map((f, i) => (
-          <Fragment key={f.field + f.operator + i}>
-            {filtersMap[f.field].renderFilter({
-              operator: f.operator,
-              value: f.value,
-              setOperator: (operator) => {
-                setFilters(
-                  filters.map((ff, ii) => (ii == i ? {...ff, operator} : ff)),
-                )
-              },
-              setValue: (value) => {
-                setFilters(
-                  filters.map((ff, ii) => (ii == i ? {...ff, value} : ff)),
-                )
-              },
-              remove: () => {
-                setFilters(filters.filter((_, ii) => ii != i))
-              },
-            })}
-          </Fragment>
-        ))}
+        {filters.map((f, i) => {
+          const remove = () => {
+            setFilters(filters.filter((ff) => ff != f))
+          }
+
+          const filterDef = filtersDef[f.field] as FilterDef
+          return (
+            <Fragment key={i}>
+              {filterDef.renderFilter({
+                operator: f.operator,
+                remove,
+                setOperator: (operator) => {
+                  setFilters(filters.map((ff) => (ff != f ? ff : operator(ff))))
+                },
+                setValue: (value) => {
+                  setFilters(filters.map((ff) => (ff != f ? ff : value(ff))))
+                },
+                value: f.value,
+              })}
+            </Fragment>
+          )
+        })}
         <button
           onClick={() => {
             const field = faker.helpers.arrayElement([
               'content',
               'isCompleted',
-              'estimate',
+              'categories',
             ] as const)
-            setFilters([
-              ...filters,
-              {
-                field,
-                operator: filtersMap[field].defaultOperator,
-                value: filtersMap[field].defaultValue,
-              },
-            ])
+            const filterDef = filtersDef[field]
+            setFilters([...filters, filterDef.getDefaultState()])
           }}
         >
           add filter
