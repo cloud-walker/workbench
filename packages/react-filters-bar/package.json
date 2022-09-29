@@ -1,12 +1,17 @@
 {
   "name": "@cloudwalker/react-filters-bar",
   "version": "0.0.0",
+  "scripts": {
+    "types": "tsc --noEmit",
+    "build": "tsup src/main.tsx",
+    "dev": "tsup src/main.tsx --watch"
+  },
   "files": [
     "dist/**"
   ],
-  "main": "./dist/main.js",
-  "module": "./dist/main.mjs",
-  "types": "./dist/main.d.ts",
+  "main": "dist/main.js",
+  "module": "dist/main.mjs",
+  "types": "dist/main.d.ts",
   "sideEffects": false,
   "author": {
     "name": "Luca Barone",
@@ -17,6 +22,12 @@
     "access": "public"
   },
   "devDependencies": {
-    "react": "^18.2.0"
+    "@types/react": "^18.0.21",
+    "react": "^18.2.0",
+    "tsup": "^6.2.3",
+    "typescript": "^4.8.4"
+  },
+  "peerDependencies": {
+    "react": ">=16.8"
   }
 }
