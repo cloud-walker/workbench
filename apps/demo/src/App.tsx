@@ -4,13 +4,12 @@ import {makeTask, Task, TaskFilter} from './task'
 const initialTasks = Array.from({length: 50}, makeTask)
 const initialState: {tasks: Task[]; filters: readonly TaskFilter[]} = {
   tasks: initialTasks,
-  filters: [],
+  filters: [{field: 'content', operator: 'like', value: 'male'}],
 }
 
-export function App() {
-  const [state, setState] = useState(initialState)
-  const tasks = state.tasks.filter(task => {
-    const matches = state.filters.map(filter => {
+function makeTaskPredicate(filters: readonly TaskFilter[]) {
+  const taskPredicate = (task: Task) => {
+    const matches = filters.map(filter => {
       if (filter.operator == 'any_of') {
         return filter.value.some(match => task[filter.field].includes(match))
       }
@@ -31,7 +30,13 @@ export function App() {
     })
 
     return matches.every(Boolean)
-  })
+  }
+  return taskPredicate
+}
+
+export function App() {
+  const [state, setState] = useState(initialState)
+  const tasks = state.tasks.filter(makeTaskPredicate(state.filters))
   return (
     <div
       style={{
@@ -43,6 +48,19 @@ export function App() {
       }}
     >
       <h1>Tasks</h1>
+      <div>
+        <button>add filter</button>
+
+        <ul>
+          {state.filters.map((filter, i) => {
+            return (
+              <li key={`${filter.field}_${i}`}>
+                <pre>{JSON.stringify(filter, null, 2)}</pre>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
       <ul style={{display: 'flex', flexDirection: 'column', gap: '0.25em'}}>
         {tasks.map(task => (
           <li key={task.id}>
