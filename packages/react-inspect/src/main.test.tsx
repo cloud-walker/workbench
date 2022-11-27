@@ -71,7 +71,7 @@ test('works properly', () => {
             </span>
              
             <span
-              style="font-weight: bold; color: orange;"
+              style="font-weight: bold;"
             >
               666
             </span>
@@ -114,7 +114,7 @@ test('works properly', () => {
               style="cursor: pointer;"
             >
               <span
-                style="font-weight: bold; color: magenta;"
+                style="font-weight: bold;"
               >
                 fn
               </span>
