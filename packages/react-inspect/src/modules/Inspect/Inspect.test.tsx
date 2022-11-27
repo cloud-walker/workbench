@@ -73,7 +73,7 @@ describe('Inspect component', () => {
               </span>
                
               <span
-                style="font-weight: bold; color: orange;"
+                style="font-weight: bold;"
               >
                 666
               </span>
@@ -116,7 +116,7 @@ describe('Inspect component', () => {
                 style="cursor: pointer;"
               >
                 <span
-                  style="font-weight: bold; color: magenta;"
+                  style="font-weight: bold;"
                 >
                   fn
                 </span>
