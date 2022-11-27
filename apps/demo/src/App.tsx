@@ -1,10 +1,37 @@
 import {useId, useState} from 'react'
-import {makeTask, Task} from './task'
+import {makeTask, Task, TaskFilter} from './task'
 
 const initialTasks = Array.from({length: 50}, makeTask)
+const initialState: {tasks: Task[]; filters: readonly TaskFilter[]} = {
+  tasks: initialTasks,
+  filters: [],
+}
 
 export function App() {
-  const [tasks, setTasks] = useState(initialTasks)
+  const [state, setState] = useState(initialState)
+  const tasks = state.tasks.filter(task => {
+    const matches = state.filters.map(filter => {
+      if (filter.operator == 'any_of') {
+        return filter.value.some(match => task[filter.field].includes(match))
+      }
+
+      if (filter.operator == 'none_of') {
+        return !filter.value.some(match => task[filter.field].includes(match))
+      }
+
+      if (filter.operator == 'like') {
+        return task[filter.field].includes(filter.value)
+      }
+
+      if (filter.operator == 'unlike') {
+        return !task[filter.field].includes(filter.value)
+      }
+
+      return true
+    })
+
+    return matches.every(Boolean)
+  })
   return (
     <div
       style={{
@@ -17,15 +44,21 @@ export function App() {
     >
       <h1>Tasks</h1>
       <ul style={{display: 'flex', flexDirection: 'column', gap: '0.25em'}}>
-        {tasks.map((task) => (
+        {tasks.map(task => (
           <li key={task.id}>
             <TaskPreview
               task={task}
-              onChange={(task) => {
-                setTasks(tasks.map((t) => (t.id == task.id ? task : t)))
+              onChange={task => {
+                setState({
+                  ...state,
+                  tasks: state.tasks.map(t => (t.id == task.id ? task : t)),
+                })
               }}
               onRemove={() => {
-                setTasks(tasks.filter((t) => t.id != task.id))
+                setState({
+                  ...state,
+                  tasks: state.tasks.filter(t => t.id != task.id),
+                })
               }}
             />
           </li>
@@ -51,7 +84,7 @@ function TaskPreview({
         type="checkbox"
         id={checkboxId}
         checked={task.isCompleted}
-        onChange={(e) => {
+        onChange={e => {
           onChange({...task, isCompleted: e.currentTarget.checked})
         }}
       />
