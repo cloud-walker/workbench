@@ -6,12 +6,20 @@ export function makeResultsEncoders<TResult extends {[k in string]: unknown}>({
   fieldsEncodings: {readonly [k in keyof TResult]?: string}
 }) {
   type FieldEncodings = typeof fieldsEncodings
+  type Field = keyof FieldEncodings
   const fieldsEncodingInverted = recordReverse(fieldsEncodings)
 
   const resultsFilters = makeResultsFiltersEncoder()
   const resultsSortings = makeResultsSortingsEncoder()
   const fieldsFilters = makeFieldsFiltersEncoder()
-  const fieldsSortings = makeFieldsSortingsEncoder()
+  const fieldsSortings = {
+    encode: (fields: readonly Field[]): string =>
+      fields.map((f) => fieldsEncodings[f]).join(','),
+    decode: (encoding: string): Field[] =>
+      encoding == ''
+        ? []
+        : encoding.split(',').map((frag) => fieldsEncodingInverted[frag]),
+  }
 
   return {
     resultsFilters,
@@ -45,4 +53,5 @@ function recordReverse<TRecord extends {readonly [k in string]?: string}>(
   }
 }
 
-const foo = recordReverse({a: 'A', b: 'B'})
+const foo = {a: 'A', b: 'B'} as const
+const bar = recordReverse(foo)
