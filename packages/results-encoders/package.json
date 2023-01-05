@@ -1,5 +1,5 @@
 {
-  "name": "@cloudwalker/results-encoder",
+  "name": "@cloudwalker/results-encoders",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
