@@ -10,7 +10,11 @@ type Todo = {
   updatedAt: string
 }
 
-const encoders = makeResultsEncoders<Todo>()
+const encoders = makeResultsEncoders<Todo>({
+  fieldsEncodings: {
+    content: 'cn',
+  },
+})
 const {resultsFilters, fieldsFilters, fieldsSortings, resultsSortings} =
   encoders
 
