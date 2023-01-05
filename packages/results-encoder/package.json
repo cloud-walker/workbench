@@ -1,6 +1,7 @@
 {
-  "name": "@cloudwalker/items-encoder",
+  "name": "@cloudwalker/results-encoder",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "types": "tsc --noEmit",
     "test": "vitest",
