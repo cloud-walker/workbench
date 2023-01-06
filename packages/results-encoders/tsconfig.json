@@ -2,7 +2,8 @@
   "compilerOptions": {
     "strict": true,
     "module": "NodeNext",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noUncheckedIndexedAccess": true
   },
   "include": ["src"]
 }
