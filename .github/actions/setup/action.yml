@@ -23,3 +23,4 @@ runs:
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
     - run: pnpm install --frozen-lockfile
+      shell: bash
