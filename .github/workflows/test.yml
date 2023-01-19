@@ -11,12 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: 'yarn'
-          node-version-file: '.nvmrc'
-      - run: yarn install --frozen-lockfile
-      - run: yarn types
-      - run: yarn lint
-      - run: yarn coverage
-      - run: yarn build
+      - uses: ./.github/actions/setup
+      - run: pnpm types
+      - run: pnpm lint
+      - run: pnpm coverage
+      - run: pnpm build
