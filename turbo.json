@@ -13,6 +13,9 @@
       "outputs": ["dist/**", "build/**"],
       "dependsOn": ["^build"]
     },
+    "release": {
+      "dependsOn": ["^build"]
+    },
     "dev": {
       "cache": false
     }

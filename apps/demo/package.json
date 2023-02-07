@@ -3,7 +3,8 @@
   "name": "demo",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "release": "echo \"Releasing demo app\""
   },
   "devDependencies": {
     "@cloudwalker/dom-utils": "*",
