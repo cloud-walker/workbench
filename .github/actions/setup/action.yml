@@ -1,9 +1,13 @@
 runs:
   using: 'composite'
   steps:
+    - name: Setup vars
+      shell: bash
+      id: vars
+      run: echo "NODE_VERSION=$(jq -r .volta.node package.json)"
     - uses: actions/setup-node@v3
       with:
-        node-version-file: '.nvmrc'
+        node-version: '${{steps.vars.outputs.NODE_VERSION}}'
     - uses: pnpm/action-setup@v2
       name: Install pnpm
       id: pnpm-install
