@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "release": "echo \"Releasing demo app\""
+    "release": "echo \"Releasing demo app..\""
   },
   "devDependencies": {
     "@cloudwalker/dom-utils": "*",
