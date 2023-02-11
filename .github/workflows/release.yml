@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 2
       - uses: ./.github/actions/setup
-      - run: npx turbo run release --filter=[HEAD^1]
+      - run: npx turbo run release --filter="[HEAD^1]"
 
   version:
     runs-on: ubuntu-latest
