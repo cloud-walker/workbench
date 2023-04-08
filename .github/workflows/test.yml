@@ -14,7 +14,7 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/setup
+      - uses: ./.github/actions/setup-deps
       - run: pnpm types
       - run: pnpm lint
       - run: pnpm coverage

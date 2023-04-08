@@ -1,3 +1,5 @@
+name: setup deps
+description: setup the job with node, pnpm and project dependencies
 runs:
   using: 'composite'
   steps:
