@@ -1,0 +1,14 @@
+name: setup deps
+description: setup the job with node, pnpm and project dependencies
+runs:
+  using: 'composite'
+  steps:
+    - uses: pnpm/action-setup@v2
+      with:
+        version: 7
+    - uses: actions/setup-node@v3
+      with:
+        node-version-file: package.json
+        cache: 'pnpm'
+    - run: pnpm i --frozen-lockfile
+      shell: bash
