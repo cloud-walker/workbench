@@ -49,9 +49,9 @@ importers:
       tailwindcss:
         specifier: ^3.3.1
         version: 3.3.1(postcss@8.4.21)
-      tw-colors:
-        specifier: ^1.2.0
-        version: 1.2.0(tailwindcss@3.3.1)
+      tailwindcss-themer:
+        specifier: ^3.0.1
+        version: 3.0.1(tailwindcss@3.3.1)
       vite:
         specifier: ^4.0.4
         version: 4.0.4(@types/node@18.11.18)
@@ -6882,11 +6882,6 @@ packages:
       rimraf: 3.0.2
     dev: true
 
-  /flat@5.0.2:
-    resolution: {integrity: sha512-b6suED+5/3rTpUBdG1gupIl8MPFCAMA0QXwmljLhvCUKcUvdE4gWky9zpuGCcXHOsz4J9wPGNWq6OKpmIzz3hQ==}
-    hasBin: true
-    dev: true
-
   /flatted@3.2.7:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
     dev: true
@@ -8287,6 +8282,10 @@ packages:
     resolution: {integrity: sha512-POA5uymZXoBHl0/SBaDzY8vh0x3WZ8ZQOsqkKD/4Iek9BQyC3C3lpBp44EMl/BLAzHjEBe/iJ9wNOuQN4rQdZA==}
     dev: false
 
+  /just-unique@4.2.0:
+    resolution: {integrity: sha512-cxQGGUiit6CGUpuuiezY8N4m1wgF4o7127rXEXDFcxeDUFfdV7gSkwA26Fe2wWBiNQq2SZOgN4gSmMxB/StA8Q==}
+    dev: true
+
   /kind-of@3.2.2:
     resolution: {integrity: sha512-NOW9QQXMoZGg/oqnVNoNTTIFEIid1627WCffUBJEdMxYApq7mNE7CpzucIPc+ZQg25Phej7IJSmX3hO+oblOtQ==}
     engines: {node: '>=0.10.0'}
@@ -8448,12 +8447,12 @@ packages:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
     dev: true
 
-  /lodash.foreach@4.5.0:
-    resolution: {integrity: sha512-aEXTF4d+m05rVOAUG3z4vZZ4xVexLKZGF0lIxuHZ1Hplpk/3B6Z1+/ICICYRLm7c41Z2xiejbkCkJoTlypoXhQ==}
-    dev: true
-
   /lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
+    dev: true
+
+  /lodash.mergewith@4.6.2:
+    resolution: {integrity: sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==}
     dev: true
 
   /lodash.sortby@4.7.0:
@@ -11181,6 +11180,18 @@ packages:
     resolution: {integrity: sha512-qImOD23aDfnIDNqlG1NOehdB9IYsn1V9oByPjKY1nakv2MQYCEMyX033/q+aEtYCpmYK1cv2+NTmlH+ra6GA5A==}
     dev: true
 
+  /tailwindcss-themer@3.0.1(tailwindcss@3.3.1):
+    resolution: {integrity: sha512-fYbrcm9/WrLepfFg51PcbfQuEBv0jFeMYlU/emCuvTt6NOvzks9Dlp2Ji+EqM6K7KHA6KpZ2NJWbZLmewpHNwA==}
+    peerDependencies:
+      tailwindcss: ^3.1.0
+    dependencies:
+      color: 4.2.3
+      just-unique: 4.2.0
+      lodash.merge: 4.6.2
+      lodash.mergewith: 4.6.2
+      tailwindcss: 3.3.1(postcss@8.4.21)
+    dev: true
+
   /tailwindcss@3.3.1(postcss@8.4.21):
     resolution: {integrity: sha512-Vkiouc41d4CEq0ujXl6oiGFQ7bA3WEhUZdTgXAhtKxSy49OmKs8rEfQmupsfF0IGW8fv2iQkp1EVUuapCFrZ9g==}
     engines: {node: '>=12.13.0'}
@@ -11639,17 +11650,6 @@ packages:
       turbo-linux-arm64: 1.8.8
       turbo-windows-64: 1.8.8
       turbo-windows-arm64: 1.8.8
-    dev: true
-
-  /tw-colors@1.2.0(tailwindcss@3.3.1):
-    resolution: {integrity: sha512-gbvYhPb3Ony0dkaYQ2GYYF88XWSUlj25iDOFcMWR7ncK5NEMRbqKq0M3s4xOfGqBHpvX3i3XI2MCbRPM5BudJQ==}
-    peerDependencies:
-      tailwindcss: '>=3.0.0'
-    dependencies:
-      color: 4.2.3
-      flat: 5.0.2
-      lodash.foreach: 4.5.0
-      tailwindcss: 3.3.1(postcss@8.4.21)
     dev: true
 
   /type-check@0.3.2:

@@ -38,7 +38,7 @@ export function App() {
   const [state, setState] = useState(initialState)
   const tasks = state.tasks.filter(makeTaskPredicate(state.filters))
   return (
-    <div className="mx-auto flex flex-col gap-2 max-w-prose text-primary">
+    <div className="mx-auto flex flex-col gap-2 max-w-prose text-primary-500">
       <h1>Tasks</h1>
       <div>
         <button>add filter</button>
