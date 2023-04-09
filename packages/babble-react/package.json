@@ -1,0 +1,11 @@
+{
+  "name": "@cloudwalker/babble-react",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "tsup src/main.ts",
+    "dev": "tsup src/main.ts --watch"
+  },
+  "devDependencies": {
+    "tsup": "^6.2.3"
+  }
+}
