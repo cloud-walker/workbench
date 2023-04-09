@@ -1,5 +1,5 @@
 import {useId, useState} from 'react'
-import {makeTask, Task, TaskFilter} from './task'
+import {Task, TaskFilter, makeTask} from './task'
 
 const initialTasks = Array.from({length: 50}, makeTask)
 const initialState: {tasks: Task[]; filters: readonly TaskFilter[]} = {
@@ -9,13 +9,13 @@ const initialState: {tasks: Task[]; filters: readonly TaskFilter[]} = {
 
 function makeTaskPredicate(filters: readonly TaskFilter[]) {
   const taskPredicate = (task: Task) => {
-    const matches = filters.map(filter => {
+    const matches = filters.map((filter) => {
       if (filter.operator == 'any_of') {
-        return filter.value.some(match => task[filter.field].includes(match))
+        return filter.value.some((match) => task[filter.field].includes(match))
       }
 
       if (filter.operator == 'none_of') {
-        return !filter.value.some(match => task[filter.field].includes(match))
+        return !filter.value.some((match) => task[filter.field].includes(match))
       }
 
       if (filter.operator == 'like') {
@@ -38,15 +38,7 @@ export function App() {
   const [state, setState] = useState(initialState)
   const tasks = state.tasks.filter(makeTaskPredicate(state.filters))
   return (
-    <div
-      style={{
-        maxWidth: '1024px',
-        marginInline: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '0.5em',
-      }}
-    >
+    <div className="mx-auto flex flex-col gap-2 max-w-prose">
       <h1>Tasks</h1>
       <div>
         <button>add filter</button>
@@ -61,21 +53,21 @@ export function App() {
           })}
         </ul>
       </div>
-      <ul style={{display: 'flex', flexDirection: 'column', gap: '0.25em'}}>
-        {tasks.map(task => (
+      <ul className="flex flex-col gap-1">
+        {tasks.map((task) => (
           <li key={task.id}>
             <TaskPreview
               task={task}
-              onChange={task => {
+              onChange={(task) => {
                 setState({
                   ...state,
-                  tasks: state.tasks.map(t => (t.id == task.id ? task : t)),
+                  tasks: state.tasks.map((t) => (t.id == task.id ? task : t)),
                 })
               }}
               onRemove={() => {
                 setState({
                   ...state,
-                  tasks: state.tasks.filter(t => t.id != task.id),
+                  tasks: state.tasks.filter((t) => t.id != task.id),
                 })
               }}
             />
@@ -97,16 +89,16 @@ function TaskPreview({
 }) {
   const checkboxId = useId()
   return (
-    <div style={{display: 'flex', gap: '0.5em'}}>
+    <div className="flex gap-2">
       <input
         type="checkbox"
         id={checkboxId}
         checked={task.isCompleted}
-        onChange={e => {
+        onChange={(e) => {
           onChange({...task, isCompleted: e.currentTarget.checked})
         }}
       />
-      <label htmlFor={checkboxId} style={{flexGrow: 1}}>
+      <label htmlFor={checkboxId} className="grow">
         {task.content}
       </label>
       <div>{task.categories.toString()}</div>
