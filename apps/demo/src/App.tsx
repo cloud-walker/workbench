@@ -39,17 +39,14 @@ export function App() {
   const tasks = state.tasks.filter(makeTaskPredicate(state.filters))
   return (
     <div
+      className="flex flex-col mx-auto gap-2"
       style={{
         maxWidth: '1024px',
-        marginInline: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '0.5em',
       }}
     >
-      <h1 className="m-1">Tasks</h1>
+      <h1>Tasks</h1>
       <div>
-        <button>add filter</button>
+        <button className="text-primary-500">add filter</button>
 
         <ul>
           {state.filters.map((filter, i) => {
