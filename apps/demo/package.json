@@ -9,6 +9,8 @@
   "devDependencies": {
     "@cloudwalker/dom-utils": "*",
     "@faker-js/faker": "^7.5.0",
+    "@types/react": "^18.0.18",
+    "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.0.1",
     "nanoid": "^4.0.0",
     "react": "^18.2.0",
