@@ -38,10 +38,10 @@ export function App() {
   const [state, setState] = useState(initialState)
   const tasks = state.tasks.filter(makeTaskPredicate(state.filters))
   return (
-    <div className="mx-auto flex flex-col gap-2 max-w-prose text-primary-500">
+    <div className="mx-auto flex flex-col gap-2 max-w-prose">
       <h1>Tasks</h1>
       <div>
-        <button>add filter</button>
+        <button className="bg-primary-9 text-primary-1 px-1">add filter</button>
 
         <ul>
           {state.filters.map((filter, i) => {
@@ -102,7 +102,12 @@ function TaskPreview({
         {task.content}
       </label>
       <div>{task.categories.toString()}</div>
-      <button onClick={onRemove}>Remove</button>
+      <button
+        onClick={onRemove}
+        className="text-critical-12 bg-critical-9 px-1"
+      >
+        Remove
+      </button>
     </div>
   )
 }
