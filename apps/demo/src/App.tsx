@@ -1,4 +1,5 @@
-import {useId, useState} from 'react'
+import {useEffect, useId, useRef, useState} from 'react'
+import {z} from 'zod'
 import {Task, TaskFilter, makeTask} from './task'
 
 const initialTasks = Array.from({length: 50}, makeTask)
@@ -39,9 +40,12 @@ export function App() {
   const tasks = state.tasks.filter(makeTaskPredicate(state.filters))
   return (
     <div className="mx-auto flex flex-col gap-2 max-w-prose">
-      <h1>Tasks</h1>
+      <header className="flex gap-2">
+        <h1>Tasks</h1>
+        <ThemePicker />
+      </header>
       <div>
-        <button className="bg-primary-9 text-primary-1 px-1">add filter</button>
+        <button className="bg-primary-9 text-gray-1 px-1">add filter</button>
 
         <ul>
           {state.filters.map((filter, i) => {
@@ -78,6 +82,46 @@ export function App() {
   )
 }
 
+const Theme = z.enum(['alpha-light', 'alpha-dark', 'beta-light', 'beta-dark'])
+type Theme = z.infer<typeof Theme>
+
+function ThemePicker() {
+  const [theme, setTheme] = useState<Theme>(() => {
+    const raw = localStorage.getItem('demo-theme')
+    const parsed = Theme.safeParse(raw)
+    return parsed.success ? parsed.data : 'alpha-light'
+  })
+  const prevTheme = usePrevious(theme)
+  if (prevTheme != null) {
+    document.body.classList.remove(prevTheme)
+  }
+  document.body.classList.add(theme)
+  return (
+    <select
+      defaultValue={theme}
+      onChange={(e) => {
+        const theme = Theme.parse(e.currentTarget.value)
+        localStorage.setItem('demo-theme', theme)
+        setTheme(theme)
+      }}
+    >
+      {Theme.options.map((t) => (
+        <option key={t} value={t}>
+          {t}
+        </option>
+      ))}
+    </select>
+  )
+}
+
+function usePrevious<T>(value: T) {
+  const ref = useRef<T>()
+  useEffect(() => {
+    ref.current = value
+  }, [value])
+  return ref.current
+}
+
 function TaskPreview({
   task,
   onChange,
@@ -92,6 +136,7 @@ function TaskPreview({
     <div className="flex gap-2">
       <input
         type="checkbox"
+        className="accent-primary-9"
         id={checkboxId}
         checked={task.isCompleted}
         onChange={(e) => {
@@ -102,10 +147,7 @@ function TaskPreview({
         {task.content}
       </label>
       <div>{task.categories.toString()}</div>
-      <button
-        onClick={onRemove}
-        className="text-critical-12 bg-critical-9 px-1"
-      >
+      <button onClick={onRemove} className="text-gray-1 bg-critical-9 px-1">
         Remove
       </button>
     </div>
