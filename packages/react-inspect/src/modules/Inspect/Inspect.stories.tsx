@@ -1,8 +1,8 @@
-import {ComponentMeta} from '@storybook/react'
+import {Meta} from '@storybook/react'
 import {Inspect} from '.'
 import {data} from '../testUtils'
 
-const meta: ComponentMeta<typeof Inspect> = {
+const meta: Meta<typeof Inspect> = {
   title: 'Inspect',
   component: Inspect,
 }
