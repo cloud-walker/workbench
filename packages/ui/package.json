@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --report-unused-disable-directives .",
+    "panda:codegen": "panda codegen",
+    "prepare": "panda:codegen",
     "build": "tsup",
-    "stories": "storybook dev -p 6006",
-    "panda:codegen": "panda codegen"
+    "stories": "storybook dev -p 6006"
   },
   "type": "module",
   "exports": {
