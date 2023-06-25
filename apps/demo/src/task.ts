@@ -26,18 +26,18 @@ export const task2FiltersOperators = {
 export type TaskFilter = {
   [k in keyof typeof task2FiltersOperators]: {
     field: k
-    operator: typeof task2FiltersOperators[k][number]
+    operator: (typeof task2FiltersOperators)[k][number]
     value: Task[k]
   }
 }[keyof typeof task2FiltersOperators]
 
 export function makeTask(): Task {
   const updatedAt = faker.date.recent()
-  const createdAt = faker.date.recent(5, updatedAt)
+  const createdAt = faker.date.recent({days: 5, refDate: updatedAt})
   return {
     id: nanoid(),
     categories: faker.helpers.uniqueArray(faker.animal.type, 5),
-    content: faker.random.words(),
+    content: faker.lorem.words(),
     createdAt,
     updatedAt,
     estimate: faker.datatype.number({min: 1}),
