@@ -58,7 +58,7 @@ importers:
         version: 9.20.3
       tsup:
         specifier: ^7.1.0
-        version: 7.1.0(typescript@5.0.4)
+        version: 7.1.0(postcss@8.4.24)(typescript@5.0.4)
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
@@ -128,7 +128,7 @@ importers:
         version: 7.0.23
       tsup:
         specifier: ^7.1.0
-        version: 7.1.0(typescript@5.0.4)
+        version: 7.1.0(postcss@8.4.24)(typescript@5.0.4)
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
@@ -146,7 +146,7 @@ importers:
         version: 18.2.0
       tsup:
         specifier: ^7.1.0
-        version: 7.1.0(typescript@5.0.4)
+        version: 7.1.0(postcss@8.4.24)(typescript@5.0.4)
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
@@ -155,7 +155,7 @@ importers:
     devDependencies:
       tsup:
         specifier: ^7.1.0
-        version: 7.1.0(typescript@5.0.4)
+        version: 7.1.0(postcss@8.4.24)(typescript@5.0.4)
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
@@ -165,6 +165,9 @@ importers:
       '@pandacss/dev':
         specifier: ^0.4.0
         version: 0.4.0(@types/react-dom@18.2.6)(@types/react@18.2.14)(astro@2.7.0)(typescript@5.0.4)
+      '@pandacss/types':
+        specifier: ^0.4.0
+        version: 0.4.0
       '@storybook/react':
         specifier: ^7.0.23
         version: 7.0.23(react-dom@18.2.0)(react@18.2.0)(typescript@5.0.4)
@@ -198,6 +201,9 @@ importers:
       storybook:
         specifier: ^7.0.23
         version: 7.0.23
+      tsup:
+        specifier: ^7.1.0
+        version: 7.1.0(postcss@8.4.24)(typescript@5.0.4)
 
 packages:
 
@@ -12890,7 +12896,7 @@ packages:
     resolution: {integrity: sha512-mSxlJJwl3BMEQCUNnxXBU9jP4JBktcEGhURcPR6VQVlnP0FdDEsIaz0C35dXNGLyRfrATNofF0F5p2KPxQgB+w==}
     dev: true
 
-  /tsup@7.1.0(typescript@5.0.4):
+  /tsup@7.1.0(postcss@8.4.24)(typescript@5.0.4):
     resolution: {integrity: sha512-mazl/GRAk70j8S43/AbSYXGgvRP54oQeX8Un4iZxzATHt0roW0t6HYDVZIXMw0ZQIpvr1nFMniIVnN5186lW7w==}
     engines: {node: '>=16.14'}
     hasBin: true
@@ -12914,6 +12920,7 @@ packages:
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
+      postcss: 8.4.24
       postcss-load-config: 4.0.1(postcss@8.4.24)
       resolve-from: 5.0.0
       rollup: 3.25.2

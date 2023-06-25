@@ -1,4 +1,5 @@
 import {definePreset} from '@pandacss/dev'
+import type {Preset} from '@pandacss/types'
 
 export const preset = definePreset({
   theme: {
@@ -9,4 +10,4 @@ export const preset = definePreset({
       },
     },
   },
-})
+}) as Preset
