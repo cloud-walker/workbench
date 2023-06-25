@@ -4,7 +4,7 @@
   "scripts": {
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --report-unused-disable-directives .",
     "panda:codegen": "panda codegen",
-    "prepare": "panda:codegen",
+    "prepare": "pnpm panda:codegen",
     "build": "tsup",
     "stories": "storybook dev -p 6006"
   },
