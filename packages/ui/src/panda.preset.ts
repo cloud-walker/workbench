@@ -4,7 +4,7 @@ export const preset = definePreset({
   theme: {
     tokens: {
       colors: {
-        primary: {value: 'blue'},
+        primary: {value: 'red'},
         secondary: {value: 'green'},
       },
     },
