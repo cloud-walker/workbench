@@ -1,0 +1,40 @@
+{
+  "name": "@cloudwalker/ui",
+  "version": "0.0.0",
+  "scripts": {
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx --report-unused-disable-directives .",
+    "panda:codegen": "panda codegen",
+    "prepare": "pnpm panda:codegen",
+    "build": "tsup",
+    "stories": "storybook dev -p 6006"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.js",
+      "require": "./dist/main.cjs"
+    },
+    "./panda": {
+      "types": "./dist/panda.preset.d.ts",
+      "import": "./dist/panda.preset.js",
+      "require": "./dist/panda.preset.cjs"
+    }
+  },
+  "devDependencies": {
+    "@pandacss/dev": "^0.4.0",
+    "@pandacss/types": "^0.4.0",
+    "@storybook/react": "^7.0.23",
+    "@storybook/react-vite": "^7.0.23",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/parser": "^5.60.0",
+    "eslint": "^8.43.0",
+    "eslint-plugin-react": "^7.32.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.23",
+    "tsup": "^7.1.0"
+  }
+}
