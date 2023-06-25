@@ -5,6 +5,7 @@ export default defineConfig({
   presets: [preset],
   include: ['src/**/*.{ts,tsx,mdx}'],
 
-  emitPackage: true,
   outdir: '@cloudwalker/styled-system',
+  strictTokens: true,
+  emitPackage: true,
 })

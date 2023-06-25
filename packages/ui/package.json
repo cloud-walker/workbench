@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "stories": "storybook dev -p 6006",
-    "panda:codegen": "panda codegen"
+    "panda:codegen": "panda codegen",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx --report-unused-disable-directives ."
   },
   "devDependencies": {
     "@pandacss/dev": "^0.4.0",
@@ -11,6 +12,10 @@
     "@storybook/react-vite": "^7.0.23",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/parser": "^5.60.0",
+    "eslint": "^8.43.0",
+    "eslint-plugin-react": "^7.32.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.0.23"
