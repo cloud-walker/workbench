@@ -1,0 +1,17 @@
+{
+  "name": "@cloudwalker/ui",
+  "version": "0.0.0",
+  "scripts": {
+    "stories": "storybook dev -p 6006"
+  },
+  "devDependencies": {
+    "@pandacss/dev": "^0.4.0",
+    "@storybook/react": "^7.0.23",
+    "@storybook/react-vite": "^7.0.23",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.23"
+  }
+}
