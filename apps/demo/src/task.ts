@@ -31,7 +31,7 @@ export type TaskFilter = {
   }
 }[keyof typeof task2FiltersOperators]
 
-export function makeTask(): Task {
+export const makeTask = (): Task => {
   const updatedAt = faker.date.recent()
   const createdAt = faker.date.recent({days: 5, refDate: updatedAt})
   return {
@@ -40,7 +40,7 @@ export function makeTask(): Task {
     content: faker.lorem.words(),
     createdAt,
     updatedAt,
-    estimate: faker.datatype.number({min: 1}),
+    estimate: faker.number.int({min: 1}),
     isCompleted: faker.datatype.boolean(),
   }
 }

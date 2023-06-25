@@ -1,13 +1,13 @@
 import {PropsWithChildren} from 'react'
 
-export function Value({
+export const Value = ({
   children,
   type,
   theme,
 }: PropsWithChildren<{
   type: string
   theme: 'gloom' | 'default'
-}>) {
+}>) => {
   return (
     <span
       style={{
@@ -20,7 +20,7 @@ export function Value({
   )
 }
 
-function getColor(theme: 'gloom' | 'default', type: string) {
+const getColor = (theme: 'gloom' | 'default', type: string) => {
   switch (theme) {
     case 'gloom': {
       switch (type) {

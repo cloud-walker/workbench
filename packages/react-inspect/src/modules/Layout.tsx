@@ -1,9 +1,9 @@
 import {PropsWithChildren} from 'react'
 
-export function Layout({
+export const Layout = ({
   children,
   theme,
-}: PropsWithChildren<{theme: 'gloom' | 'default'}>) {
+}: PropsWithChildren<{theme: 'gloom' | 'default'}>) => {
   return (
     <pre
       style={{

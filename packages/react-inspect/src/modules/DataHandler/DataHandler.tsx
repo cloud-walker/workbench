@@ -4,7 +4,11 @@ import {Level} from '../Level'
 import {Punctuation} from '../Punctuation'
 import {Value} from '../Value'
 
-export function DataHandler({
+const isRecord = (data: unknown): data is Record<string, unknown> => {
+  return data != null && typeof data == 'object'
+}
+
+export const DataHandler = ({
   data,
   outer = false,
   theme = 'default',
@@ -12,7 +16,7 @@ export function DataHandler({
   data: unknown
   outer?: boolean
   theme?: 'gloom' | 'default'
-}) {
+}) => {
   if (typeof data == 'string') {
     return <Value type="string" theme={theme}>{`"${data}"`}</Value>
   }
@@ -95,7 +99,3 @@ export function DataHandler({
 }
 
 DataHandler.displayName = 'ReactInspectDataHandler'
-
-function isRecord(data: unknown): data is Record<string, unknown> {
-  return data != null && typeof data == 'object'
-}

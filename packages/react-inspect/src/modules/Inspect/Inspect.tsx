@@ -4,13 +4,13 @@ import {PropsWithoutRef} from 'react'
 import {DataHandler} from '../DataHandler'
 import {Layout} from '../Layout'
 
-export function Inspect({
+export const Inspect = ({
   data,
   theme = 'default',
 }: PropsWithoutRef<{
   theme?: 'gloom' | 'default'
   data: unknown
-}>) {
+}>) => {
   if (data != null && typeof data == 'object' && isCircular(data)) {
     throw new Error(
       'ReactInspect Error: circular data inspection not supported',

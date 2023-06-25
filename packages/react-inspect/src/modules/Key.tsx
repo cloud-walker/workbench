@@ -1,9 +1,9 @@
 import {PropsWithChildren} from 'react'
 
-export function Key({
+export const Key = ({
   children,
   theme,
-}: PropsWithChildren<{theme: 'gloom' | 'default'}>) {
+}: PropsWithChildren<{theme: 'gloom' | 'default'}>) => {
   return (
     <span
       style={{

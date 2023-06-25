@@ -1,5 +1,6 @@
-import {useId, useState} from 'react'
-import {makeTask, Task, TaskFilter} from './task'
+import {useState} from 'react'
+import {TaskPreview} from './TaskPreview'
+import {Task, TaskFilter, makeTask} from './task'
 
 const initialTasks = Array.from({length: 50}, makeTask)
 const initialState: {tasks: Task[]; filters: readonly TaskFilter[]} = {
@@ -7,15 +8,15 @@ const initialState: {tasks: Task[]; filters: readonly TaskFilter[]} = {
   filters: [{field: 'content', operator: 'like', value: 'male'}],
 }
 
-function makeTaskPredicate(filters: readonly TaskFilter[]) {
+const makeTaskPredicate = (filters: readonly TaskFilter[]) => {
   const taskPredicate = (task: Task) => {
-    const matches = filters.map(filter => {
+    const matches = filters.map((filter) => {
       if (filter.operator == 'any_of') {
-        return filter.value.some(match => task[filter.field].includes(match))
+        return filter.value.some((match) => task[filter.field].includes(match))
       }
 
       if (filter.operator == 'none_of') {
-        return !filter.value.some(match => task[filter.field].includes(match))
+        return !filter.value.some((match) => task[filter.field].includes(match))
       }
 
       if (filter.operator == 'like') {
@@ -34,7 +35,7 @@ function makeTaskPredicate(filters: readonly TaskFilter[]) {
   return taskPredicate
 }
 
-export function App() {
+export const App = () => {
   const [state, setState] = useState(initialState)
   const tasks = state.tasks.filter(makeTaskPredicate(state.filters))
   return (
@@ -62,55 +63,26 @@ export function App() {
         </ul>
       </div>
       <ul style={{display: 'flex', flexDirection: 'column', gap: '0.25em'}}>
-        {tasks.map(task => (
+        {tasks.map((task) => (
           <li key={task.id}>
             <TaskPreview
               task={task}
-              onChange={task => {
+              onChange={(task) => {
                 setState({
                   ...state,
-                  tasks: state.tasks.map(t => (t.id == task.id ? task : t)),
+                  tasks: state.tasks.map((t) => (t.id == task.id ? task : t)),
                 })
               }}
               onRemove={() => {
                 setState({
                   ...state,
-                  tasks: state.tasks.filter(t => t.id != task.id),
+                  tasks: state.tasks.filter((t) => t.id != task.id),
                 })
               }}
             />
           </li>
         ))}
       </ul>
-    </div>
-  )
-}
-
-function TaskPreview({
-  task,
-  onChange,
-  onRemove,
-}: {
-  task: Task
-  onChange: (task: Task) => void
-  onRemove: () => void
-}) {
-  const checkboxId = useId()
-  return (
-    <div style={{display: 'flex', gap: '0.5em'}}>
-      <input
-        type="checkbox"
-        id={checkboxId}
-        checked={task.isCompleted}
-        onChange={e => {
-          onChange({...task, isCompleted: e.currentTarget.checked})
-        }}
-      />
-      <label htmlFor={checkboxId} style={{flexGrow: 1}}>
-        {task.content}
-      </label>
-      <div>{task.categories.toString()}</div>
-      <button onClick={onRemove}>Remove</button>
     </div>
   )
 }

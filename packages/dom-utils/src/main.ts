@@ -1,9 +1,9 @@
 /**
  * A strictier version of "document.querySelector".
  */
-export function getBySelector(
+export const getBySelector = (
   ...args: Parameters<typeof document.querySelector>
-) {
+) => {
   const el = document.querySelector(...args)
 
   if (el == null) {

@@ -1,9 +1,9 @@
 import {PropsWithChildren} from 'react'
 
-export function Punctuation({
+export const Punctuation = ({
   children,
   theme,
-}: PropsWithChildren<{theme: 'gloom' | 'default'}>) {
+}: PropsWithChildren<{theme: 'gloom' | 'default'}>) => {
   return (
     <span
       style={{

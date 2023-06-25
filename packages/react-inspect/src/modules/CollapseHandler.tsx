@@ -1,7 +1,11 @@
 import {RenderProp} from '@cloudwalker/react-utils'
 import {useState} from 'react'
 
-export function CollapseHandler({children}: {children: RenderProp<boolean>}) {
+export const CollapseHandler = ({
+  children,
+}: {
+  children: RenderProp<boolean>
+}) => {
   const [show, setShow] = useState(false)
 
   return (
