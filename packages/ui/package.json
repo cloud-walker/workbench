@@ -1,6 +1,6 @@
 {
   "name": "@cloudwalker/ui",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --report-unused-disable-directives .",
     "panda:codegen": "panda codegen",
