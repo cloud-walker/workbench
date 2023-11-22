@@ -3,9 +3,9 @@ import { ZodObject, ZodRawShape, TypeOf } from 'zod'
 export const zodSp = {
   parse(searchParams: URLSearchParams): Record<string, string | string[]> {
     return [...searchParams.entries()].reduce<Record<string, string | string[]>>((acc, [key, value]) => {
-      if (value == null) {
-        return acc
-      }
+      // if (value == null) {
+      //   return acc
+      // }
 
       if (key.endsWith('[]')) {
         acc[key.replace('[]', '')] = value.split(',')
@@ -45,7 +45,7 @@ export const zodSp = {
       console.log(parsed)
       return schema.parse(parsed)
     }
-    const serialize = () => { }
+    const serialize = this.serialize
     return { parse, serialize } as const
   }
 } as const

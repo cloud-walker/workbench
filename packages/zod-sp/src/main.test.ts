@@ -45,14 +45,8 @@ describe('.with(ZodSchema)', () => {
     { input: '', expected: { c: false, e: defaultTuple } },
     { input: 'c=true&a=123&e[]=foo,123', expected: { a: '123', c: true, e: ['foo', 123] } },
     { input: 'c=true&a=123&e[]=foo,123', expected: { a: '123', c: true, e: ['foo', 123] } },
-    { input: zodSp.serialize({ d: [new Date(ISO_DATE_STUB), new Date(ISO_DATE_STUB)] }), expected: { a: '123', c: true, d: [new Date(ISO_DATE_STUB), new Date(ISO_DATE_STUB)], e: ['default', 0] } },
+    { input: zodSp.serialize({ d: [new Date(ISO_DATE_STUB), new Date(ISO_DATE_STUB)] }), expected: { c: false, d: [new Date(ISO_DATE_STUB), new Date(ISO_DATE_STUB)], e: ['default', 0] } },
   ])('.parse($input) -> $expected', ({ input, expected }) => {
     expect(dummySp.parse(new URLSearchParams(input))).toEqual(expected)
-  })
-
-  test.each([
-    { input: 1, expected: 1 },
-  ])('.serialize($input) -> $expected', ({ input, expected }) => {
-    expect(input).toBe(expected)
   })
 })
