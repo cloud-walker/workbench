@@ -24,17 +24,17 @@
   "devDependencies": {
     "@pandacss/dev": "^0.4.0",
     "@pandacss/types": "^0.4.0",
-    "@storybook/react": "^7.0.23",
-    "@storybook/react-vite": "^7.0.23",
-    "@types/react": "^18.2.14",
-    "@types/react-dom": "^18.2.6",
-    "@typescript-eslint/eslint-plugin": "^5.60.0",
-    "@typescript-eslint/parser": "^5.60.0",
-    "eslint": "^8.43.0",
-    "eslint-plugin-react": "^7.32.2",
+    "@storybook/react": "^7.5.3",
+    "@storybook/react-vite": "^7.5.3",
+    "@types/react": "^18.2.38",
+    "@types/react-dom": "^18.2.16",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "eslint": "^8.54.0",
+    "eslint-plugin-react": "^7.33.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^7.0.23",
-    "tsup": "^7.1.0"
+    "storybook": "^7.5.3",
+    "tsup": "^7.2.0"
   }
 }
