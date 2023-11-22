@@ -1,0 +1,34 @@
+{
+  "name": "zod-sp",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsup src/main.ts",
+    "dev": "tsup src/main.ts --watch"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "main": "./dist/main.cjs",
+  "module": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/main.js",
+      "require": "./dist/main.cjs"
+    }
+  },
+  "author": {
+    "name": "Luca Barone",
+    "email": "baro.luc@gmail.com",
+    "url": "https://github.com/cloud-walker"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "tsup": "^7.1.0",
+    "typescript": "^5.0.4"
+  }
+}

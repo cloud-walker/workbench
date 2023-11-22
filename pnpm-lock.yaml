@@ -205,6 +205,15 @@ importers:
         specifier: ^7.1.0
         version: 7.1.0(postcss@8.4.24)(typescript@5.0.4)
 
+  packages/zod-sp:
+    devDependencies:
+      tsup:
+        specifier: ^7.1.0
+        version: 7.1.0(postcss@8.4.24)(typescript@5.0.4)
+      typescript:
+        specifier: ^5.0.4
+        version: 5.0.4
+
 packages:
 
   /@ampproject/remapping@2.2.1:
