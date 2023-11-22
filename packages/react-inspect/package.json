@@ -2,6 +2,7 @@
   "name": "@cloudwalker/react-inspect",
   "version": "0.9.0",
   "description": "Because json stringify is not enough",
+  "type": "module",
   "scripts": {
     "types": "tsc --noEmit",
     "lint": "eslint --ignore-path=\"../../.gitignore\" .",
