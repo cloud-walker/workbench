@@ -22,8 +22,8 @@
     }
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.4.0",
-    "@pandacss/types": "^0.4.0",
+    "@pandacss/dev": "^0.18.3",
+    "@pandacss/types": "^0.18.3",
     "@storybook/react": "^7.5.3",
     "@storybook/react-vite": "^7.5.3",
     "@types/react": "^18.2.38",
