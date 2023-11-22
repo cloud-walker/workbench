@@ -1,6 +1,8 @@
 {
   "private": true,
+  "type": "module",
   "scripts": {
+    "format": "prettier --write .",
     "preinstall": "npx only-allow pnpm",
     "types": "turbo run types",
     "lint": "turbo run lint",
@@ -11,9 +13,9 @@
     "release": "changeset publish"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.1",
-    "prettier": "^2.8.8",
-    "turbo": "^1.10.6"
+    "@changesets/cli": "^2.26.2",
+    "prettier": "^3.1.0",
+    "turbo": "^1.10.16"
   },
   "volta": {
     "node": "18.14.0"
