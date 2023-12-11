@@ -1,0 +1,29 @@
+{
+  "name": "@cloudwalker/fn",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {},
+  "files": [
+    "dist/**"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/main.js",
+        "types": "./dist/main.d.ts"
+      },
+      "require": {
+        "default": "./dist/main.cjs",
+        "types": "./dist/main.d.cts"
+      }
+    }
+  },
+  "author": {
+    "name": "Luca Barone",
+    "email": "baro.luc@gmail.com",
+    "url": "https://github.com/cloud-walker"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
