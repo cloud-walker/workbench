@@ -14,7 +14,6 @@
     "module": "ESNext",
     "noEmit": true,
     "lib": ["ES2022"],
-    "composite": true,
     "sourceMap": true,
     "declarationMap": true,
     "declaration": true

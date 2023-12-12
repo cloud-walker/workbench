@@ -68,6 +68,9 @@ importers:
 
   packages/fn:
     devDependencies:
+      '@vitest/coverage-v8':
+        specifier: ^0.34.6
+        version: 0.34.6(vitest@0.34.6)
       tsup:
         specifier: ^8.0.1
         version: 8.0.1(postcss@8.4.31)(typescript@5.3.2)
