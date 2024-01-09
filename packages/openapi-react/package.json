@@ -1,5 +1,5 @@
 {
-  "name": "openapi-react",
+  "name": "@cloudwalker/openapi-react",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/cloud-walker/workbench/issues"
   },
-  "homepage": "https://github.com/cloud-walker/workbench#readme"
+  "homepage": "https://github.com/cloud-walker/workbench#readme",
+  "dependencies": {
+    "zod": "^3.22.4"
+  }
 }
