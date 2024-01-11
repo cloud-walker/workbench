@@ -1,0 +1,31 @@
+{
+  "name": "@cloudwalker/openapi-zod-schema",
+  "version": "0.0.0",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloud-walker/workbench.git"
+  },
+  "keywords": [
+    "react",
+    "openapi",
+    "swagger"
+  ],
+  "author": {
+    "name": "Luca Barone",
+    "email": "baro.luc@gmail.com",
+    "url": "https://github.com/cloud-walker"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cloud-walker/workbench/issues"
+  },
+  "homepage": "https://github.com/cloud-walker/workbench#readme",
+  "dependencies": {
+    "zod": "^3.22.4"
+  }
+}
