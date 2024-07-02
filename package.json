@@ -10,7 +10,8 @@
     "coverage": "turbo run coverage",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "validate": "turbo run types && turbo run lint && turbo run coverage && turbo run build"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.7",
