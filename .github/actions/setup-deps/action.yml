@@ -4,6 +4,8 @@ runs:
   using: 'composite'
   steps:
     - uses: pnpm/action-setup@v4
+      with:
+        run_install: false
     - run: |
         echo "$(pnpm config get use-node-version)"
         echo "NODE_VERSION=$(pnpm config get use-node-version)" >> $GITHUB_ENV
