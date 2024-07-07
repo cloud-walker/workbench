@@ -6,23 +6,23 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-# env:
-#   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-#   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+env:
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 jobs:
-  # types:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: ./.github/actions/setup-deps
-  #     - run: pnpm types
+  types:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-deps
+      - run: pnpm types
 
-  # lint:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: ./.github/actions/setup-deps
-  #     - run: pnpm lint
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-deps
+      - run: pnpm lint
 
   build:
     runs-on: ubuntu-latest
@@ -31,9 +31,9 @@ jobs:
       - uses: ./.github/actions/setup-deps
       - run: pnpm build
 
-  # coverage:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: ./.github/actions/setup-deps
-  #     - run: pnpm coverage
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-deps
+      - run: pnpm coverage
