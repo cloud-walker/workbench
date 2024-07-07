@@ -9,7 +9,7 @@ runs:
       shell: bash
     - uses: pnpm/action-setup@v4
     - run: |
-      echo "node version: $(pnpm config get node-version)"
+      echo "$(pnpm config get node-version)"
       echo "NODE_VERSION=$(pnpm config get node-version)" >> $GITHUB_ENV
     - uses: actions/setup-node@v4
       with:
