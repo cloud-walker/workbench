@@ -3,12 +3,14 @@ description: setup the job with node, pnpm and project dependencies
 runs:
   using: 'composite'
   steps:
-    - uses: pnpm/action-setup@v4
-      with:
-        run_install: false
     - run: |
-        echo "$(pnpm config get use-node-version)"
-        echo "NODE_VERSION=$(pnpm config get use-node-version)" >> $GITHUB_ENV
+        echo "rename use-node-version to node-version to avoid issues with vercel build"
+        sed -i 's/use-node-version/node-version/g' .npmrc
+      shell: bash
+    - uses: pnpm/action-setup@v4
+    - run: |
+        echo "$(pnpm config get node-version)"
+        echo "NODE_VERSION=$(pnpm config get node-version)" >> $GITHUB_ENV
       shell: bash
     - uses: actions/setup-node@v4
       with:
