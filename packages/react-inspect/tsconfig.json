@@ -1,10 +1,12 @@
 {
 	"compilerOptions": {
+		"noEmit": true,
 		"strict": true,
 		"jsx": "react-jsx",
-		"moduleResolution": "node",
+		"module": "es2022",
+		"moduleResolution": "bundler",
 		"skipLibCheck": true,
 		"noImplicitAny": true
 	},
-	"include": ["src"]
+	"include": ["src", ".storybook/**/*.ts"]
 }

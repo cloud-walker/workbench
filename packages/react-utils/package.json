@@ -2,7 +2,7 @@
 	"name": "@cloudwalker/react-utils",
 	"version": "0.1.0",
 	"scripts": {
-		"types": "tsc --noEmit",
+		"types": "tsc",
 		"build": "tsup src/main.ts",
 		"dev": "tsup src/main.ts --watch"
 	},

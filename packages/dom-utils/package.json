@@ -3,7 +3,7 @@
 	"version": "0.2.0",
 	"type": "module",
 	"scripts": {
-		"types": "tsc --noEmit",
+		"types": "tsc",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
 		"build": "tsup src/main.ts",

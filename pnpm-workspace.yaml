@@ -1,5 +1,8 @@
 packages:
-  - 'apps/**'
-  - 'packages/**'
+  - apps/**
+  - packages/**
+
+onlyBuiltDependencies:
+  - esbuild
 
 useNodeVersion: 22.18.0
