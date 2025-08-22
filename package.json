@@ -15,9 +15,9 @@
     "validate": "turbo run types && turbo run lint && turbo run coverage && turbo run build"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.7",
-    "prettier": "^3.3.2",
-    "turbo": "^2.0.6"
+    "@changesets/cli": "^2.29.6",
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.6"
   },
   "packageManager": "pnpm@10.15.0"
 }
