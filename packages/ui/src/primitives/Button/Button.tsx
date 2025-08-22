@@ -1,19 +1,15 @@
 import {css, cx} from '@cloudwalker/styled-system/css'
-import {type ButtonHTMLAttributes, createElement, forwardRef} from 'react'
+import {createElement} from 'react'
 
 import {arbitraryValue} from '../../panda'
 
-export const Button = forwardRef<
-	HTMLButtonElement,
-	ButtonHTMLAttributes<HTMLButtonElement>
->(function Button(props, ref) {
+export function Button(props: React.ComponentPropsWithRef<'button'>) {
 	return createElement('button', {
-		ref,
 		type: 'button',
+		...props,
 		className: cx(
 			props.className,
 			css({bg: 'primary', color: arbitraryValue('white')}),
 		),
-		...props,
 	})
-})
+}
