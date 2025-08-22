@@ -2,6 +2,7 @@
 	"compilerOptions": {
 		"strict": true,
 		"jsx": "react-jsx",
-		"moduleResolution": "Node"
+		"module": "es2022",
+		"moduleResolution": "bundler"
 	}
 }

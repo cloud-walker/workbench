@@ -1,7 +1,7 @@
 import {definePreset} from '@pandacss/dev'
-import type {Preset} from '@pandacss/types'
 
 export const preset = definePreset({
+	name: 'cloudwalker',
 	theme: {
 		tokens: {
 			colors: {
@@ -10,4 +10,4 @@ export const preset = definePreset({
 			},
 		},
 	},
-}) as Preset
+})
