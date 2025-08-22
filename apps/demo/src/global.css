@@ -1,13 +1,13 @@
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 h1 {
-  margin: unset;
+	margin: unset;
 }
 
 ul {
-  margin: unset;
-  padding: unset;
-  list-style-type: none;
+	margin: unset;
+	padding: unset;
+	list-style-type: none;
 }

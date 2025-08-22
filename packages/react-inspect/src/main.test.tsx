@@ -4,8 +4,8 @@ import {Inspect} from './main'
 import {data} from './modules/testUtils'
 
 test('works properly', () => {
-  const {container} = render(<Inspect data={data} />)
-  expect(container).toMatchInlineSnapshot(`
+	const {container} = render(<Inspect data={data} />)
+	expect(container).toMatchInlineSnapshot(`
     <div>
       <pre
         style="line-height: 1.25; font-size: 1.25rem; font-family: monospace; padding: 0.75rem; display: inline-block; background-color: transparent;"

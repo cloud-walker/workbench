@@ -1,73 +1,68 @@
 {
-  "name": "@cloudwalker/react-inspect",
-  "version": "0.9.0",
-  "description": "Because json stringify is not enough",
-  "type": "module",
-  "scripts": {
-    "types": "tsc --noEmit",
-    "lint": "eslint --ignore-path=\"../../.gitignore\" .",
-    "test": "vitest",
-    "coverage": "vitest run --coverage",
-    "stories": "storybook dev",
-    "build": "tsup src/main.ts",
-    "dev": "tsup src/main.ts --watch"
-  },
-  "files": [
-    "dist/**"
-  ],
-  "main": "dist/main.js",
-  "module": "dist/main.mjs",
-  "types": "./dist/main.d.ts",
-  "sideEffects": false,
-  "author": {
-    "name": "Luca Barone",
-    "email": "baro.luc@gmail.com",
-    "url": "https://github.com/cloud-walker"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cloud-walker/workbench"
-  },
-  "bugs": {
-    "url": "https://github.com/cloud-walker/workbench/issues"
-  },
-  "keywords": [
-    "react",
-    "inspect",
-    "log",
-    "json",
-    "stringify"
-  ],
-  "peerDependencies": {
-    "react": ">=16.8"
-  },
-  "devDependencies": {
-    "@cloudwalker/react-utils": "workspace:*",
-    "@storybook/addon-essentials": "^8.6.14",
-    "@storybook/addon-interactions": "^8.6.14",
-    "@storybook/addon-links": "^8.6.14",
-    "@storybook/react": "^8.6.14",
-    "@storybook/react-vite": "^8.6.14",
-    "@testing-library/react": "^16.3.0",
-    "@types/react": "^18.3.24",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
-    "@vitejs/plugin-react": "^4.7.0",
-    "@vitest/coverage-v8": "^1.6.1",
-    "eslint": "^8.57.1",
-    "eslint-plugin-react": "^7.37.5",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "sanitize.css": "^13.0.0",
-    "storybook": "^8.6.14",
-    "tsup": "^8.5.0",
-    "typescript": "~5.5.4",
-    "vitest": "^1.6.1"
-  },
-  "dependencies": {
-    "just-is-circular": "^2.1.1"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@cloudwalker/react-inspect",
+	"version": "0.9.0",
+	"description": "Because json stringify is not enough",
+	"type": "module",
+	"scripts": {
+		"types": "tsc --noEmit",
+		"test": "vitest",
+		"coverage": "vitest run --coverage",
+		"stories": "storybook dev",
+		"build": "tsup src/main.ts",
+		"dev": "tsup src/main.ts --watch"
+	},
+	"files": [
+		"dist/**"
+	],
+	"main": "dist/main.js",
+	"module": "dist/main.mjs",
+	"types": "./dist/main.d.ts",
+	"sideEffects": false,
+	"author": {
+		"name": "Luca Barone",
+		"email": "baro.luc@gmail.com",
+		"url": "https://github.com/cloud-walker"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cloud-walker/workbench"
+	},
+	"bugs": {
+		"url": "https://github.com/cloud-walker/workbench/issues"
+	},
+	"keywords": [
+		"react",
+		"inspect",
+		"log",
+		"json",
+		"stringify"
+	],
+	"peerDependencies": {
+		"react": ">=16.8"
+	},
+	"devDependencies": {
+		"@cloudwalker/react-utils": "workspace:*",
+		"@storybook/addon-essentials": "^8.6.14",
+		"@storybook/addon-interactions": "^8.6.14",
+		"@storybook/addon-links": "^8.6.14",
+		"@storybook/react": "^8.6.14",
+		"@storybook/react-vite": "^8.6.14",
+		"@testing-library/react": "^16.3.0",
+		"@types/react": "^18.3.24",
+		"@vitejs/plugin-react": "^4.7.0",
+		"@vitest/coverage-v8": "^1.6.1",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"sanitize.css": "^13.0.0",
+		"storybook": "^8.6.14",
+		"tsup": "^8.5.0",
+		"typescript": "~5.5.4",
+		"vitest": "^1.6.1"
+	},
+	"dependencies": {
+		"just-is-circular": "^2.1.1"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }

@@ -1,10 +1,10 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "noImplicitAny": true
-  },
-  "include": ["src"]
+	"compilerOptions": {
+		"strict": true,
+		"jsx": "react-jsx",
+		"moduleResolution": "node",
+		"skipLibCheck": true,
+		"noImplicitAny": true
+	},
+	"include": ["src"]
 }

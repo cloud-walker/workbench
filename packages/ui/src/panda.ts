@@ -1,4 +1,4 @@
 export const arbitraryValue = (value: string) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return value as any
+	// biome-ignore lint/suspicious/noExplicitAny: "we should upgrade panda"
+	return value as any
 }

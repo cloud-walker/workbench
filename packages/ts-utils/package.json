@@ -1,34 +1,34 @@
 {
-  "name": "@cloudwalker/ts-utils",
-  "version": "0.1.0",
-  "type": "module",
-  "scripts": {
-    "build": "tsup src/main.ts",
-    "dev": "tsup src/main.ts --watch"
-  },
-  "files": [
-    "dist/**"
-  ],
-  "main": "./dist/main.cjs",
-  "module": "./dist/main.js",
-  "types": "./dist/main.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/main.js",
-      "require": "./dist/main.cjs"
-    }
-  },
-  "sideEffects": false,
-  "author": {
-    "name": "Luca Barone",
-    "email": "baro.luc@gmail.com",
-    "url": "https://github.com/cloud-walker"
-  },
-  "devDependencies": {
-    "tsup": "^8.5.0",
-    "typescript": "~5.5.4"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@cloudwalker/ts-utils",
+	"version": "0.1.0",
+	"type": "module",
+	"scripts": {
+		"build": "tsup src/main.ts",
+		"dev": "tsup src/main.ts --watch"
+	},
+	"files": [
+		"dist/**"
+	],
+	"main": "./dist/main.cjs",
+	"module": "./dist/main.js",
+	"types": "./dist/main.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/main.js",
+			"require": "./dist/main.cjs"
+		}
+	},
+	"sideEffects": false,
+	"author": {
+		"name": "Luca Barone",
+		"email": "baro.luc@gmail.com",
+		"url": "https://github.com/cloud-walker"
+	},
+	"devDependencies": {
+		"tsup": "^8.5.0",
+		"typescript": "~5.5.4"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }

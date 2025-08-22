@@ -1,13 +1,12 @@
 import {render} from '@testing-library/react'
 import {describe, expect, it} from 'vitest'
-
-import {DataHandler} from '.'
 import {arr, data, fun, nil, num, str} from '../testUtils'
+import {DataHandler} from '.'
 
 describe('DataHandler component', () => {
-  it('should render properly if data is undefined', () => {
-    const {container} = render(<DataHandler data={undefined} />)
-    expect(container).toMatchInlineSnapshot(`
+	it('should render properly if data is undefined', () => {
+		const {container} = render(<DataHandler data={undefined} />)
+		expect(container).toMatchInlineSnapshot(`
       <div>
         <span
           style="font-weight: bold; color: purple;"
@@ -16,11 +15,11 @@ describe('DataHandler component', () => {
         </span>
       </div>
     `)
-  })
+	})
 
-  it('should render properly if data is null', () => {
-    const {container} = render(<DataHandler data={nil} />)
-    expect(container).toMatchInlineSnapshot(`
+	it('should render properly if data is null', () => {
+		const {container} = render(<DataHandler data={nil} />)
+		expect(container).toMatchInlineSnapshot(`
       <div>
         <span
           style="font-weight: bold; color: purple;"
@@ -29,11 +28,11 @@ describe('DataHandler component', () => {
         </span>
       </div>
     `)
-  })
+	})
 
-  it('should render properly if data is a number', () => {
-    const {container} = render(<DataHandler data={num} />)
-    expect(container).toMatchInlineSnapshot(`
+	it('should render properly if data is a number', () => {
+		const {container} = render(<DataHandler data={num} />)
+		expect(container).toMatchInlineSnapshot(`
       <div>
         <span
           style="font-weight: bold; color: orange;"
@@ -42,11 +41,11 @@ describe('DataHandler component', () => {
         </span>
       </div>
     `)
-  })
+	})
 
-  it('should render properly if data is a string', () => {
-    const {container} = render(<DataHandler data={str} />)
-    expect(container).toMatchInlineSnapshot(`
+	it('should render properly if data is a string', () => {
+		const {container} = render(<DataHandler data={str} />)
+		expect(container).toMatchInlineSnapshot(`
       <div>
         <span
           style="font-weight: bold; color: green;"
@@ -55,11 +54,11 @@ describe('DataHandler component', () => {
         </span>
       </div>
     `)
-  })
+	})
 
-  it('should render properly if data is a function', () => {
-    const {container} = render(<DataHandler data={fun} />)
-    expect(container).toMatchInlineSnapshot(`
+	it('should render properly if data is a function', () => {
+		const {container} = render(<DataHandler data={fun} />)
+		expect(container).toMatchInlineSnapshot(`
       <div>
         <span
           style="cursor: pointer;"
@@ -72,11 +71,11 @@ describe('DataHandler component', () => {
         </span>
       </div>
     `)
-  })
+	})
 
-  it('should render properly if data is an object', () => {
-    const {container} = render(<DataHandler data={data} />)
-    expect(container).toMatchInlineSnapshot(`
+	it('should render properly if data is an object', () => {
+		const {container} = render(<DataHandler data={data} />)
+		expect(container).toMatchInlineSnapshot(`
       <div>
         <span>
           <span
@@ -101,11 +100,11 @@ describe('DataHandler component', () => {
         </span>
       </div>
     `)
-  })
+	})
 
-  it('should render properly if data is an array', () => {
-    const {container} = render(<DataHandler data={arr} />)
-    expect(container).toMatchInlineSnapshot(`
+	it('should render properly if data is an array', () => {
+		const {container} = render(<DataHandler data={arr} />)
+		expect(container).toMatchInlineSnapshot(`
       <div>
         <span>
           <span
@@ -130,5 +129,5 @@ describe('DataHandler component', () => {
         </span>
       </div>
     `)
-  })
+	})
 })

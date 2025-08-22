@@ -5,9 +5,9 @@ import {useState} from 'react'
  * render phase.
  */
 export const usePreviousValue = <T>(value: T): T => {
-  const [prevValue, setPrevValue] = useState(value)
-  if (value !== prevValue) {
-    setPrevValue(value)
-  }
-  return prevValue
+	const [prevValue, setPrevValue] = useState(value)
+	if (value !== prevValue) {
+		setPrevValue(value)
+	}
+	return prevValue
 }
