@@ -9,5 +9,5 @@ export default defineConfig({
 	strictPropertyValues: true,
 	validation: 'error',
 	outdir: 'styled-system',
-	shorthands: false,
+	outExtension: 'js',
 })
