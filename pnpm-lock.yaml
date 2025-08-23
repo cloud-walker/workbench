@@ -66,6 +66,21 @@ importers:
         specifier: ^3.2.4
         version: 3.2.4(@types/debug@4.1.12)(@types/node@20.19.11)(happy-dom@18.0.1)(jiti@1.21.0)(lightningcss@1.25.1)
 
+  packages/fn:
+    devDependencies:
+      '@vitest/coverage-v8':
+        specifier: ^3.2.4
+        version: 3.2.4(vitest@3.2.4(@types/debug@4.1.12)(@types/node@20.19.11)(happy-dom@18.0.1)(jiti@1.21.0)(lightningcss@1.25.1))
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.0(jiti@1.21.0)(postcss@8.5.6)(typescript@5.9.2)
+      typescript:
+        specifier: ~5.9.2
+        version: 5.9.2
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.4(@types/debug@4.1.12)(@types/node@20.19.11)(happy-dom@18.0.1)(jiti@1.21.0)(lightningcss@1.25.1)
+
   packages/react-inspect:
     dependencies:
       just-is-circular:
@@ -3402,7 +3417,7 @@ snapshots:
       '@vue/compiler-ssr': 3.4.19
       '@vue/shared': 3.4.19
       estree-walker: 2.0.2
-      magic-string: 0.30.17
+      magic-string: 0.30.18
       postcss: 8.4.49
       source-map-js: 1.2.1
 
