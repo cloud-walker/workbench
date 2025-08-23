@@ -8,4 +8,6 @@ export default defineConfig({
 	strictTokens: true,
 	strictPropertyValues: true,
 	validation: 'error',
+	outdir: 'styled-system',
+	shorthands: false,
 })
