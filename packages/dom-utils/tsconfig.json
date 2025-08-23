@@ -1,8 +1,9 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "module": "NodeNext",
-    "skipLibCheck": true
-  },
-  "include": ["src"]
+	"compilerOptions": {
+		"noEmit": true,
+		"strict": true,
+		"module": "NodeNext",
+		"skipLibCheck": true
+	},
+	"include": ["src"]
 }

@@ -1,13 +1,12 @@
 import {render} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
-
-import {Inspect} from '.'
 import {circ, data} from '../testUtils'
+import {Inspect} from '.'
 
 describe('Inspect component', () => {
-  it('should render properly', () => {
-    const {container} = render(<Inspect data={data} />)
-    expect(container).toMatchInlineSnapshot(`
+	it('should render properly', () => {
+		const {container} = render(<Inspect data={data} />)
+		expect(container).toMatchInlineSnapshot(`
       <div>
         <pre
           style="line-height: 1.25; font-size: 1.25rem; font-family: monospace; padding: 0.75rem; display: inline-block; background-color: transparent;"
@@ -203,11 +202,11 @@ describe('Inspect component', () => {
         </pre>
       </div>
     `)
-  })
+	})
 
-  it('should render properly with gloom theme', () => {
-    const {container} = render(<Inspect data={data} theme="gloom" />)
-    expect(container).toMatchInlineSnapshot(`
+	it('should render properly with gloom theme', () => {
+		const {container} = render(<Inspect data={data} theme="gloom" />)
+		expect(container).toMatchInlineSnapshot(`
       <div>
         <pre
           style="line-height: 1.25; font-size: 1.25rem; font-family: monospace; padding: 0.75rem; display: inline-block; background-color: #212136;"
@@ -403,11 +402,11 @@ describe('Inspect component', () => {
         </pre>
       </div>
     `)
-  })
+	})
 
-  it('should throw an error if the data is circular', () => {
-    vi.spyOn(console, 'error').mockImplementation(() => vi.fn())
-    expect(() => render(<Inspect data={circ} />)).toThrowError()
-    vi.restoreAllMocks()
-  })
+	it('should throw an error if the data is circular', () => {
+		vi.spyOn(console, 'error').mockImplementation(() => vi.fn())
+		expect(() => render(<Inspect data={circ} />)).toThrowError()
+		vi.restoreAllMocks()
+	})
 })

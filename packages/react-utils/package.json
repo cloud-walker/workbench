@@ -1,40 +1,40 @@
 {
-  "name": "@cloudwalker/react-utils",
-  "version": "0.1.0",
-  "scripts": {
-    "types": "tsc --noEmit",
-    "build": "tsup src/main.ts",
-    "dev": "tsup src/main.ts --watch"
-  },
-  "files": [
-    "dist/**"
-  ],
-  "main": "dist/main.js",
-  "module": "dist/main.mjs",
-  "types": "./dist/main.d.ts",
-  "sideEffects": false,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cloud-walker/workbench"
-  },
-  "bugs": {
-    "url": "https://github.com/cloud-walker/workbench/issues"
-  },
-  "author": {
-    "name": "Luca Barone",
-    "email": "baro.luc@gmail.com",
-    "url": "https://github.com/cloud-walker"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "peerDependencies": {
-    "react": ">=16.8"
-  },
-  "devDependencies": {
-    "@types/react": "^18.3.3",
-    "react": "^18.3.1",
-    "tsup": "^8.1.0",
-    "typescript": "^5.5.3"
-  }
+	"name": "@cloudwalker/react-utils",
+	"version": "0.1.0",
+	"scripts": {
+		"types": "tsc",
+		"build": "tsup src/main.ts",
+		"dev": "tsup src/main.ts --watch"
+	},
+	"files": [
+		"dist/**"
+	],
+	"main": "dist/main.js",
+	"module": "dist/main.mjs",
+	"types": "./dist/main.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cloud-walker/workbench"
+	},
+	"bugs": {
+		"url": "https://github.com/cloud-walker/workbench/issues"
+	},
+	"author": {
+		"name": "Luca Barone",
+		"email": "baro.luc@gmail.com",
+		"url": "https://github.com/cloud-walker"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"peerDependencies": {
+		"react": ">=16.8"
+	},
+	"devDependencies": {
+		"@types/react": "^19.1.11",
+		"react": "^19.1.1",
+		"tsup": "^8.5.0",
+		"typescript": "~5.9.2"
+	}
 }

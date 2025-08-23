@@ -1,7 +1,8 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "jsx": "react-jsx",
-    "moduleResolution": "Node"
-  }
+	"compilerOptions": {
+		"strict": true,
+		"jsx": "react-jsx",
+		"module": "es2022",
+		"moduleResolution": "bundler"
+	}
 }

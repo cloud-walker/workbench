@@ -1,23 +1,23 @@
 {
-  "name": "workbench",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "format": "prettier --write .",
-    "preinstall": "npx only-allow pnpm",
-    "types": "turbo run types",
-    "lint": "turbo run lint",
-    "test": "turbo run test",
-    "coverage": "turbo run coverage",
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
-    "release": "changeset publish",
-    "validate": "turbo run types && turbo run lint && turbo run coverage && turbo run build"
-  },
-  "devDependencies": {
-    "@changesets/cli": "^2.27.7",
-    "prettier": "^3.3.2",
-    "turbo": "^2.0.6"
-  },
-  "packageManager": "pnpm@9.4.0"
+	"name": "workbench",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"preinstall": "npx only-allow pnpm",
+		"types": "turbo run types",
+		"lint": "biome check --write .",
+		"lint:check": "biome check .",
+		"test": "turbo run test",
+		"coverage": "turbo run coverage",
+		"build": "turbo run build",
+		"dev": "turbo run dev --parallel",
+		"release": "changeset publish",
+		"validate": "turbo run types && turbo run lint && turbo run coverage && turbo run build"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.2.0",
+		"@changesets/cli": "^2.29.6",
+		"turbo": "^2.5.6"
+	},
+	"packageManager": "pnpm@10.15.0"
 }
