@@ -1,11 +1,13 @@
-export function asArray<const T>(value: T | T[]): T[] {
-	if (Array.isArray(value)) {
-		return value
-	}
-	return [value]
-}
+type AsArray<T extends unknown | readonly unknown[]> = Extract<
+	T,
+	readonly unknown[]
+> extends never
+	? [T]
+	: Extract<T, readonly unknown[]>
 
-export function asArray2<const T>(value: T): T extends unknown[] ? T : T[] {
+export function asArray<T extends unknown | readonly unknown[]>(
+	value: T,
+): AsArray<T> {
 	if (Array.isArray(value)) {
 		return value as never
 	}
